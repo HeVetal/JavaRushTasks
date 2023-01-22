@@ -8,7 +8,7 @@ public class Solution {
     public static void main(String[] args) {
         int a = 3;
         int b = 2;
-        int x;
+        int x = 2;
         //System.out.print("два");
         System.out.print(b);
         System.out.print(" плюс ");
