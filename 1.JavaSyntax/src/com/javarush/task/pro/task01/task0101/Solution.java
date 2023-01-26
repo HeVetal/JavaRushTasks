@@ -8,6 +8,7 @@ public class Solution {
 
     public static void main(String[] args) {
         //напишите тут ваш код
+        int x;
         System.out.println("Диего + Амиго = Друзья");
     }
 }
