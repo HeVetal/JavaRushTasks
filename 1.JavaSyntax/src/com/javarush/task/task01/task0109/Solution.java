@@ -9,6 +9,6 @@ public class Solution {
         //напишите тут ваш код
         int a =2;
         int b =4;
-        String test2;
+        String test22;
     }
 }
