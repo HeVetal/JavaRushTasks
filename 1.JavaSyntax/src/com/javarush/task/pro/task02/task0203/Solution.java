@@ -10,7 +10,7 @@ public class Solution {
         int number = 546;
 
         int lastDigit; //напишите тут ваш код
-        System.out.println("dd");
+        System.out.println("ddd");
         //System.out.println(lastDigit);
     }
 }
