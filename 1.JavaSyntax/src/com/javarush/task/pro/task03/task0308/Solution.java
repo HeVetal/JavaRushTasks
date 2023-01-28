@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Solution {
     public static void main(String[] args) {
         //напишите тут ваш код
+        int i;
         Scanner scanner = new Scanner(System.in);
         int x = scanner.nextInt();
         int y = scanner.nextInt();
