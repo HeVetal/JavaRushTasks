@@ -15,7 +15,7 @@ public class Solution {
             int var = Integer.parseInt(answer);
             number += var;
             answer = scanner.nextLine();
-            //System.out.println(number);
+
         }
         System.out.println(number);
     }
