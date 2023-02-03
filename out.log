@@ -1280,36 +1280,3 @@ com.homework.plugin.analytics.PluginWarningException: warning
 2023-02-03 20:44:55 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
 2023-02-03 20:44:55 INFO  ApacheHttpClient.startGA(36) - GAService started.
 2023-02-03 20:44:55 INFO  ApacheHttpClient.startGA(36) - GAService started.
-2023-02-03 21:51:11 INFO  ProjectStartupHandler.projectClosing(155) - ---------- Project closed ----------
-
-2023-02-03 21:51:11 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
-2023-02-03 21:51:11 INFO  PluginProjectService.dispose(41) - PluginProjectService for disposed.
-2023-02-03 21:51:42 INFO  ProjectStartupHandler.runActivity(74) - ---------- Project opened ----------
-2023-02-03 21:51:42 INFO  ProjectStartupHandler.runActivity(75) - ---------- Version 4.02 ----------
-
-2023-02-03 21:51:42 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
-2023-02-03 21:51:42 INFO  ApacheHttpClient.logout(633) - Waiting for server response.
-2023-02-03 21:51:43 INFO  ApacheHttpClient.login(250) - Waiting for server response.
-2023-02-03 21:51:43 INFO  ApacheHttpClient.login(254) - responseCode = 200
-2023-02-03 21:51:43 INFO  ApacheHttpClient.login(277) - JSESSIONID OK
-2023-02-03 21:51:43 INFO  ApacheHttpClient.refreshUserInfo(305) - responseCode = 200
-2023-02-03 21:51:43 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
-2023-02-03 21:51:43 INFO  ApacheHttpClient.startGA(36) - GAService started.
-2023-02-03 22:00:35 INFO  ProjectStartupHandler.projectClosing(155) - ---------- Project closed ----------
-
-2023-02-03 22:00:36 INFO  ApacheHttpClient.getTask(488) - responseCode = 200
-2023-02-03 22:00:36 INFO  PluginProjectService.dispose(41) - PluginProjectService for disposed.
-2023-02-03 22:01:07 INFO  ProjectStartupHandler.runActivity(74) - ---------- Project opened ----------
-2023-02-03 22:01:07 INFO  ProjectStartupHandler.runActivity(75) - ---------- Version 4.02 ----------
-
-2023-02-03 22:01:07 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
-2023-02-03 22:01:07 INFO  ApacheHttpClient.isSessionAppropriateWithSecretKey(602) - Waiting for server response.
-2023-02-03 22:01:07 INFO  ApacheHttpClient.logout(633) - Waiting for server response.
-2023-02-03 22:01:08 INFO  ApacheHttpClient.logout(633) - Waiting for server response.
-2023-02-03 22:01:08 INFO  ApacheHttpClient.login(250) - Waiting for server response.
-2023-02-03 22:01:08 INFO  ApacheHttpClient.login(250) - Waiting for server response.
-2023-02-03 22:01:08 INFO  ApacheHttpClient.login(254) - responseCode = 200
-2023-02-03 22:01:08 INFO  ApacheHttpClient.login(277) - JSESSIONID OK
-2023-02-03 22:01:08 INFO  ApacheHttpClient.refreshUserInfo(305) - responseCode = 200
-2023-02-03 22:01:08 INFO  ApacheHttpClient.refreshUserInfo(311) - User information received.
-2023-02-03 22:01:08 INFO  ApacheHttpClient.startGA(36) - GAService started.
