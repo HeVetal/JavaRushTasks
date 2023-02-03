@@ -17,12 +17,14 @@ public class Solution {
 //        for( int i = 0; i < secondArray.length; i++){
 //            resultArray[i + firstArray.length] = secondArray[i];
 //        }
+
         for (int i = 0; i < resultArray.length; i++) {
             if(i < firstArray.length){
                 resultArray[i] = firstArray[i];
             }else {
-                resultArray[i] = secondArray[i - secondArray.length];
+                resultArray[i] = secondArray[i - firstArray.length];
             }
+
         }
         for (int i = 0; i < resultArray.length; i++) {
             System.out.print(resultArray[i] + ", ");
