@@ -17,9 +17,23 @@ public class Solution {
         for (int i = 1; i <= 10;i++){
 
             for (int j = 1; j <= 9;j++){
-                System.out.print(land);
+
+                if(j == 4 && i == 1){
+                    System.out.print(robot);
+                    continue;
+                }
+                if(i == 10){
+                    System.out.print(bug);
+                }
+                else{
+                    System.out.print(land);
+                }
             }
-            System.out.println(land);
+            if(i == 10){
+                System.out.print(bug);
+            }else {
+                System.out.println(land);
+            }
         }
     }
 }
