@@ -11,6 +11,7 @@ target/
 *.info
 *.properties
 *.jar
+*.log
 
 
 /out/
@@ -18,3 +19,4 @@ target/
 /Instruction.png
 /out.log
 /out.log.*
+
