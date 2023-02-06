@@ -14,26 +14,25 @@ public class Solution {
 
     public static void main(String[] args) {
         //напишите тут ваш код
-        for (int i = 1; i <= 10;i++){
-
-            for (int j = 1; j <= 9;j++){
-
-                if(j == 4 && i == 1){
-                    System.out.print(robot);
-                    continue;
-                }
-                if(i == 10){
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (i == 9) {
                     System.out.print(bug);
+                    //System.out.print("x");
+                } else if (i == 8 && j == 3) {
+                    System.out.print(robot);
+                    //System.out.print("r");
+                } else if ( i < 8 && j == 3){
+                    System.out.print(hole);
+                    //System.out.print(" ");
                 }
-                else{
+                else {
                     System.out.print(land);
+                    //System.out.print("o");
                 }
             }
-            if(i == 10){
-                System.out.print(bug);
-            }else {
-                System.out.println(land);
-            }
+            System.out.println();
         }
+
     }
 }
