@@ -14,6 +14,6 @@ public class Solution {
         //напишите тут ваш код
         Arrays.sort(array);
         System.out.println(Arrays.toString(array));
-        int x;
+        int x,y;
     }
 }
