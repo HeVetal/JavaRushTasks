@@ -17,8 +17,8 @@ public class Solution {
     };
 
     public static void main(String[] args) {
-        if (rockets.equals(galabugs)) {
-            System.out.println(message.toString());
+        if ( Arrays.deepEquals(rockets,galabugs)) {
+            System.out.println(Arrays.deepToString(message));
         }
     }
 }
