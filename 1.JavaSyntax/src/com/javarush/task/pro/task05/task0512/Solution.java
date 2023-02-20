@@ -11,9 +11,7 @@ public class Solution {
     public static void main(String[] args) {
         //напишите тут ваш код
         for (int i = 0; i < multiArray.length; i++) {
-            //System.out.println(multiArray[i]);
             for (int j = 0; j < multiArray[i].length; j++) {
-                //System.out.println(multiArray[j]);
                 for (int k = 0; k < multiArray[i][j].length; k++) {
                     System.out.print(multiArray[i][j][k] + " ");
                 }
