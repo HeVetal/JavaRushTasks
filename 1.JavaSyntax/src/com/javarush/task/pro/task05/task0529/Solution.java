@@ -20,7 +20,8 @@ public class Solution {
         //напишите тут ваш код
 
         for (int i = 0; i < field.length; i++) {
-            Arrays.fill(field[i], empty);
+            int x = (int) (Math.random() * width);
+            Arrays.fill(field[i],x,x, robotank);
         }
 
 
