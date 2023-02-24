@@ -21,7 +21,9 @@ public class Solution {
 
         for (int i = 0; i < field.length; i++) {
             int x = (int) (Math.random() * width);
-            Arrays.fill(field[i],x,x, robotank);
+            Arrays.fill(field[i],empty);
+            Arrays.fill(field[i],x,x+1, robotank);
+
         }
 
 
