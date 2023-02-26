@@ -18,9 +18,21 @@ public class Solution {
     public static int[][] bombs = new int[height][width];
 
     public static void main(String[] args) {
-//        for (int i = 0; i < bombs.length; i++) {
-//
-//        }
+        for (int i = 0; i < bombs.length; i++) {
+            int x = (int) Math.random() * width;
+            int count = 10;
+            for (int j = 0; j <= count; j++) {
+                Arrays.fill(bombs[x],1);
+
+            }
+        }
+
+        for (int i = 0; i < bombs.length; i++) {
+            for (int j = 0; j < bombs[i].length; j++) {
+                System.out.print(bombs[i][j]);
+            }
+            System.out.println();
+        }
 
         for (int i = 0; i < field.length; i++) {
             int x = (int) (Math.random() * width);
