@@ -21,6 +21,7 @@ public class Solution {
         for (int i = 0; i < bombs.length; i++) {
             int x = (int) Math.random() * width;
             int count = 10;
+            int y;
             for (int j = 0; j <= count; j++) {
                 Arrays.fill(bombs[x],1);
 
