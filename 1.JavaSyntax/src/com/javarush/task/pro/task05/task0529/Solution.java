@@ -1,11 +1,9 @@
-
-
 package com.javarush.task.pro.task05.task0529;
 
 import java.util.Arrays;
 
-/*
-Галаксианские роботанки (1)
+/* 
+Галаксианские роботанки (2)
 */
 
 public class Solution {
@@ -16,7 +14,6 @@ public class Solution {
     public static int height = 10;
     public static String[][] field = new String[height][width];
     public static int[][] bombs = new int[height][width];
-
     public static void main(String[] args) {
         for (int i = 0; i < bombs.length; i++) {
             int x = (int) Math.random() * width;
@@ -37,12 +34,13 @@ public class Solution {
         }
 
         for (int i = 0; i < field.length; i++) {
-            int x = (int) (Math.random() * width);
-            Arrays.fill(field[i],empty);
-            Arrays.fill(field[i],x,x+1, robotank);
-
+            Arrays.fill(field[i], empty);
         }
 
+        for (int i = 0; i < field.length; i++) {
+            int j = (int) (Math.random() * width);
+            field[i][j] = robotank;
+        }
 
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
