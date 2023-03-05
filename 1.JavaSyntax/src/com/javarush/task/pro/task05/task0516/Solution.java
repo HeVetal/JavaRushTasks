@@ -14,6 +14,14 @@ public class Solution {
 
     public static void main(String[] args) {
         //напишите тут ваш код
+//        for (int i = 0; i < array.length; i++) {
+//            if(i <= array.length / 2){
+//                array[i] = valueStart;
+//            }else{
+//                array[i] = valueEnd;
+//            }
+//        }
+        //Arrays.fill(array,);
         System.out.println(Arrays.toString(array));
     }
 }
