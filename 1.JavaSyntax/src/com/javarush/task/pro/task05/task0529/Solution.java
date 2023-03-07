@@ -19,7 +19,7 @@ public class Solution {
             int x = (int) Math.random() * width;
             int count = 10;
             for (int j = 0; j <= count; j++) {
-                Arrays.fill(bombs[x],x,x+1,1);
+                Arrays.fill(bombs[j],x,x+1,1);
                 count--;
 
 
