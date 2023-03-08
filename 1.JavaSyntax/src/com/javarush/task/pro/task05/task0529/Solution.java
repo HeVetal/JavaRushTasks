@@ -25,20 +25,26 @@ public class Solution {
             int j = (int) (Math.random() * width);
             field[i][j] = robotank;
         }
-        for (int i = 0; i < bombs.length; i++) {
-            for (int k = 0; k < 10; ) {
-                int j = (int) (Math.random() * width);
-                if(bombs[i][j] == 0) {
-                    bombs[i][j] = 1;
-                    k++;
+
+        int count = 10;
+        while (count > 0) {
+            bombs = new int[height][width];
+            for (int i = 0; i < bombs.length; i++) {
+                for (int k = 0; k < 10; ) {
+                    int j = (int) (Math.random() * width);
+                    if (bombs[i][j] == 0) {
+                        bombs[i][j] = 1;
+                        k++;
+                    }
                 }
             }
-        }
 
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                if(field[i][j].equals(robotank) && bombs[i][j] == 1){
-                    field[i][j] = hit;
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (field[i][j].equals(robotank) && bombs[i][j] == 1) {
+                        field[i][j] = hit;
+                        count--;
+                    }
                 }
             }
         }
