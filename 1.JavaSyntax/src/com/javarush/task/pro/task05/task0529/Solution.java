@@ -14,24 +14,8 @@ public class Solution {
     public static int height = 10;
     public static String[][] field = new String[height][width];
     public static int[][] bombs = new int[height][width];
+
     public static void main(String[] args) {
-        for (int i = 0; i < bombs.length; i++) {
-            int x = (int) Math.random() * width;
-            int count = 10;
-            for (int j = 0; j <= count; j++) {
-                Arrays.fill(bombs[x],x,x+1,1);
-                count--;
-
-
-            }
-        }
-
-        for (int i = 0; i < bombs.length; i++) {
-            for (int j = 0; j < bombs[i].length; j++) {
-                System.out.print(bombs[i][j]);
-            }
-            System.out.println();
-        }
 
         for (int i = 0; i < field.length; i++) {
             Arrays.fill(field[i], empty);
@@ -41,6 +25,16 @@ public class Solution {
             int j = (int) (Math.random() * width);
             field[i][j] = robotank;
         }
+        for (int i = 0; i < bombs.length; i++) {
+            for (int k = 0; k < 10; ) {
+                int j = (int) (Math.random() * width);
+                if(bombs[i][j] == 0) {
+                    bombs[i][j] = 1;
+                    k++;
+                }
+            }
+        }
+
 
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
