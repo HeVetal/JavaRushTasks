@@ -13,5 +13,7 @@ public class Solution {
 
     public static void main(String[] args) {
         //напишите тут ваш код
+        System.out.println(Arrays.deepToString(strings));
+        System.out.println(Arrays.deepToString(ints));
     }
 }
