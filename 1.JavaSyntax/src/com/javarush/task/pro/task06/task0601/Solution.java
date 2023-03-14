@@ -6,6 +6,12 @@ package com.javarush.task.pro.task06.task0601;
 
 public class Solution {
     public static void main(String[] args) {
+        printHydrogenInfo();
+        printJavaInfo();
+
+
+    }
+    public static void printHydrogenInfo(){
         System.out.println("Водород:");
         System.out.println("Это химический элемент периодической системы с обозначением H и атомным номером 1.");
         System.out.println("Является самым легким элементом таблицы.");
@@ -14,7 +20,9 @@ public class Solution {
         System.out.println("-Нефтеперерабатывающей промышленности;");
         System.out.println("-Авиации;");
         System.out.println("-Электроэнергетике.");
+    }
 
+    public static void printJavaInfo(){
         System.out.println("Остров Ява:");
         System.out.println("Входит в состав Индонезии.");
         System.out.println("На острове зародились государства Матарам, Маджапахит, Демак.");
@@ -23,6 +31,5 @@ public class Solution {
         System.out.println("Плотность населения — 1061 чел/км.кв.");
         System.out.println("Здесь производят один из знаменитых сортов кофе — Копи Лювак.");
     }
-
     //напишите тут ваш код
 }
