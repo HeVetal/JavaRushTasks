@@ -5,6 +5,7 @@ public class GalavirXIII {
     public double health =  Double.MAX_VALUE;
 
     public void defend(double defend){
+
         health -= superWeapon / defend;
     }
 
