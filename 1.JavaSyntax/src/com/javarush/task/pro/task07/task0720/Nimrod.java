@@ -12,7 +12,7 @@ public class Nimrod {
     }
 
     public int attack(){
-        return rocket;
+        return laser;
     }
 
     public byte applyShield(int attack){
