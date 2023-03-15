@@ -15,6 +15,6 @@ public class Solution {
 
     public static long ninthDegree(long b){
 
-        return cube(b) * cube(b) * cube(b) ;
+        return cube(cube(b));
     }
 }
