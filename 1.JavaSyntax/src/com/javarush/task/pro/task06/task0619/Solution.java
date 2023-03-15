@@ -9,8 +9,12 @@ public class Solution {
                                       "мертвец_6", "мертвец_7", "мертвец_8", "мертвец_9", "мертвец_10"};
 
     public static void main(String[] args) {
-        //напишите тут ваш код
+        for (int i = 0; i < deadMen.length; i++) {
+            System.out.println(destroyDeadMan(deadMen[i]));
+        }
     }
 
-    //напишите тут ваш код
+    public static String destroyDeadMan(String name){
+        return name + " был уничтожен";
+    }
 }
