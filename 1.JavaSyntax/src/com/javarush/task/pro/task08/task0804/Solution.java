@@ -12,6 +12,6 @@ public class Solution {
 
     public static int generateNumber() {
         //напишите тут ваш код
-        return (int) (Math.random() * (100 - 1)) + 1;
+        return (int) (Math.random() * 99) + 1;
     }
 }
