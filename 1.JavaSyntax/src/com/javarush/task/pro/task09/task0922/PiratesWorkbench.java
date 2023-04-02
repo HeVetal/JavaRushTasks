@@ -33,11 +33,12 @@ public class PiratesWorkbench {
     }
 
     public static void corruptDB() {
-        //напишите тут ваш код
-        for (int i = 0; i < piratesDB.length; i++) {
+        int counter = 0;
+        for (int i = 0; i < piratesDB.length && counter < 2; i++) {
+
             if(piratesDB[i].contains("b")){
-                System.out.println(piratesDB[i]);
-                piratesDB[i].replaceAll("b","!");
+                piratesDB[i] = piratesDB[i].replace('b','\b');
+                 counter++;
             }
         }
 
