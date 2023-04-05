@@ -12,11 +12,11 @@ public class Skyscraper {
     public Skyscraper(){
         System.out.println(SKYSCRAPER_WAS_BUILD);
     }
-    public Skyscraper(int floor){
-        System.out.println(SKYSCRAPER_WAS_BUILD_FLOORS_COUNT + floor);
+    public Skyscraper(int countFloors){
+        System.out.println(SKYSCRAPER_WAS_BUILD_FLOORS_COUNT + countFloors);
     }
-    public Skyscraper(String name){
-        System.out.println(SKYSCRAPER_WAS_BUILD_DEVELOPER + name);
+    public Skyscraper(String nameDeveloper){
+        System.out.println(SKYSCRAPER_WAS_BUILD_DEVELOPER + nameDeveloper);
     }
 
     public static void main(String[] args) {
