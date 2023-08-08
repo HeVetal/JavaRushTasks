@@ -18,11 +18,13 @@ public class Solution {
         }
     }
 
-    public static class EnglishTranslator extends Translator {
+    static class EnglishTranslator extends Translator{
+
 
         @Override
         public String getLanguage() {
             return "английского";
         }
     }
+
 }
