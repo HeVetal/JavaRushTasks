@@ -1,9 +1,6 @@
 package com.javarush.task.task16.task1630;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 /* 
 Последовательный вывод файлов
@@ -33,6 +30,7 @@ public class Solution {
         ReadFileInterface f = new ReadFileThread();
         f.setFileName(fileName);
         f.start();
+        f.join();
         System.out.println(f.getFileContent());
     }
 
@@ -50,24 +48,36 @@ public class Solution {
     //напишите тут ваш код
     public static class ReadFileThread extends Thread implements ReadFileInterface{
 
+        private String fileName = "";
+        private String fileContent = "";
+
         @Override
         public void run() {
-            BufferedReader readerFile = new BufferedReader(new FileReader());
+            //System.out.println("run");
+            try (BufferedReader readerFile = new BufferedReader(new FileReader(fileName))) {
+                String line;
+                while ((line = readerFile.readLine()) != null){
+                    fileContent += line + " ";
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
         public void setFileName(String fullFileName) {
-
+            this.fileName = fullFileName;
         }
 
         @Override
         public String getFileContent() {
-            return null;
+
+            return fileContent;
         }
 
-        @Override
-        public void start() {
-
-        }
+//        @Override
+//        public void start() {
+//
+//        }
     }
 }
