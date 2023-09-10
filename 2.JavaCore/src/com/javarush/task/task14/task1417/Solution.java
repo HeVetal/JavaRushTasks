@@ -16,18 +16,15 @@ public class Solution {
     }
 
     static class Person {
-
         public String name;
 
         Person(String name) {
             this.name = name;
             this.allMoney = new ArrayList<Money>();
-            Hryvnia hryvnia = new Hryvnia(20);
-            Ruble ruble = new Ruble(30);
-            USD usd = new USD(40);
-            allMoney.add(hryvnia);
-            allMoney.add(ruble);
-            allMoney.add(usd);
+            //напишите тут ваш код
+            allMoney.add(new Ruble(1));
+            allMoney.add(new Hryvnia(2));
+            allMoney.add(new USD(3));
         }
 
         private List<Money> allMoney;
