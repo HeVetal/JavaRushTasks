@@ -7,7 +7,7 @@ import java.util.List;
 Валюты
 */
 
-public class Solution {
+public class Solution{
     public static void main(String[] args) {
         Person ivan = new Person("Иван");
         for (Money money : ivan.getAllMoney()) {
