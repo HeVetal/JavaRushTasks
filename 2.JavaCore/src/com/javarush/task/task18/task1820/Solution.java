@@ -11,19 +11,19 @@ import java.util.List;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        List<Integer> list = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedReader readerFile = new BufferedReader(new FileReader(reader.readLine()));
-        BufferedWriter writerFile = new BufferedWriter( new FileWriter(reader.readLine(),true))) {
+             BufferedReader readerFile = new BufferedReader(new FileReader(reader.readLine()))) {
             String number = "";
-            while (readerFile.ready()){
+            while (readerFile.ready()) {
                 number = readerFile.readLine();
             }
             String[] numbers = number.split(" ");
+            BufferedWriter writerFile = new BufferedWriter(new FileWriter(reader.readLine(), true));
             for (String s : numbers) {
                 int doub = (int) Math.round(Double.parseDouble(s));
-
+                writerFile.write(doub + " ");
             }
+            writerFile.close();
         }
     }
 }
