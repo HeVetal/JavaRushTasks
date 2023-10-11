@@ -4,7 +4,7 @@ import com.javarush.task.task36.task3608.bean.User;
 import com.javarush.task.task36.task3608.controller.Controller;
 import com.javarush.task.task36.task3608.model.ModelData;
 
-public class EditUserView implements View{
+public class EditUserView implements View {
     private Controller controller;
 
     @Override
@@ -20,7 +20,11 @@ public class EditUserView implements View{
         this.controller = controller;
     }
 
-    public void fireEventUserDeleted(long id){
+    public void fireEventUserDeleted(long id) {
         controller.onUserDelete(id);
+    }
+
+    public void fireEventUserChanged(String name, long id, int level) {
+        controller.onUserChange(name, id, level);
     }
 }
