@@ -15,42 +15,42 @@ public class Solution {
     public static List<LineItem> lines = new ArrayList<LineItem>();
 
     public static void main(String[] args) throws IOException {
-        List<String> file1 = new ArrayList<>();
+        List<String> listOne = new ArrayList<>();
+        List<String> listTwo = new ArrayList<>();
         try (BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
              BufferedReader fileReader1 = new BufferedReader(new FileReader(console.readLine()));
              BufferedReader fileReader2 = new BufferedReader(new FileReader(console.readLine()))) {
             while (fileReader1.ready()) {
-                file1.add(fileReader1.readLine());
+                listOne.add(fileReader1.readLine());
             }
-            System.out.println("файл 1 считан");
-//            for (String s : file1) {
-//                System.out.println(s);
-//            }
+
             while (fileReader2.ready()) {
-                // System.out.println("считываем файл 2");
-                String str = fileReader2.readLine();
-                //System.out.println(str);
+                listTwo.add(fileReader2.readLine());
+            }
 
-                for (int i = 0; i < file1.size(); i++) {
-                    if (file1.get(i).contains(str)) {
-                        //      System.out.println("содержит");
 
-                        lines.add(new LineItem(Type.SAME, str));
-                    } else {
-                        //    System.out.println("не содержит файл 1");
-
-                        lines.add(new LineItem(Type.REMOVED, file1.get(i)));
-                    }
+            while (!listOne.isEmpty() && !listTwo.isEmpty()) {
+                if (listOne.get(0).equals(listTwo.get(0))) {
+                    lines.add(new LineItem(Type.SAME, listOne.get(0)));
+                    listOne.remove(0);
+                    listTwo.remove(0);
+                } else if (listOne.get(0).equals(listTwo.get(1))) {
+                    lines.add(new LineItem(Type.ADDED, listTwo.get(0)));
+                    listTwo.remove(0);
+                } else if (listOne.get(1).equals(listTwo.get(0))) {
+                    lines.add(new LineItem(Type.REMOVED, listOne.get(0)));
+                    listOne.remove(0);
                 }
-                lines.add(new LineItem(Type.ADDED, str));
-                //System.out.println("только файл 2");
-
+            }
+            if (listOne.isEmpty()) {
+                listTwo.forEach(str -> lines.add(new LineItem(Type.ADDED, str)));
+            }
+            if (listTwo.isEmpty()) {
+                listOne.forEach(str -> lines.add(new LineItem(Type.REMOVED, str)));
             }
 
             for (LineItem line : lines) {
-                //System.out.println(" в цикле линий");
-                System.out.print(line.type);
-                System.out.println(line.line);
+                System.out.println(line);
             }
         }
     }
@@ -69,6 +69,11 @@ public class Solution {
         public LineItem(Type type, String line) {
             this.type = type;
             this.line = line;
+        }
+
+        @Override
+        public String toString() {
+            return type + " " + line;
         }
     }
 }
