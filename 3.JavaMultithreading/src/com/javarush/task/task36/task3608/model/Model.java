@@ -1,7 +1,5 @@
 package com.javarush.task.task36.task3608.model;
 
-import com.javarush.task.task36.task3608.bean.User;
-
 public interface Model {
     ModelData getModelData();
 
@@ -10,4 +8,6 @@ public interface Model {
     void loadDeletedUsers();
 
     void loadUserById(long userId);
+
+    void deleteUserById(long id);
 }
