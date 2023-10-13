@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /* 
@@ -25,18 +26,24 @@ public class Solution {
              BufferedReader fileReader = new BufferedReader(new FileReader(console.readLine()))) {
             while (fileReader.ready()) {
                 String str = fileReader.readLine();
+                String[] split = str.split(" ");
                 int count = 0;
-                for (int i = 0; i < words.size(); i++) {
-                    if (str.contains(words.get(i))) {
+//                for (String s : split) {
+//                    for (String word : words) {
+//                        if (s.equals(word)) {
+//                            count++;
+//                        }
+//                    }
+//                }
+                for (String s : split) {
+                    if(words.contains(s)){
                         count++;
                     }
                 }
                 if (count == 2) {
                     System.out.println(str);
                 }
-                count = 0;
             }
         }
-
     }
 }
