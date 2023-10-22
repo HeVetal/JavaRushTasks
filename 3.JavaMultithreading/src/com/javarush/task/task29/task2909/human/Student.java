@@ -25,13 +25,12 @@ public class Student extends UniversityPerson {
 
     public void learn() {
     }
+    public String getPosition(){
+        return "Студент";
+    }
 
     public int getCourse() {
         return course;
-    }
-
-    public void printData() {
-        System.out.println("Студент: " + name);
     }
 
     public void incAverageGradeBy01() {

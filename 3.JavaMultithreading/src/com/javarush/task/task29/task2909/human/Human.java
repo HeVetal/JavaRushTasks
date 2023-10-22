@@ -24,6 +24,10 @@ public class Human implements Alive{
         return Collections.unmodifiableList(children);
     }
 
+    public String getPosition(){
+        return "Человек";
+    }
+
     public void addChild(Human human) {
         children.add(human);
     }
@@ -63,6 +67,9 @@ public class Human implements Alive{
         this.name = name;
     }
 
+    public void printData() {
+        System.out.println(getPosition() + ": " + name);
+    }
 
 
     public void live() {
