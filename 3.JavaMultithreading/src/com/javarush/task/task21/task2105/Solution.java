@@ -32,20 +32,6 @@ public class Solution {
         return Objects.hash(first, last);
     }
 
-    //    public boolean equals(Object o) {
-//        if (o == null) {
-//            System.out.println("false");
-//            return false;
-//        }
-//        if (!(o instanceof Solution)){
-//            System.out.println("inst");
-//            return false;
-//        }
-//
-//        Solution n = (Solution) o;
-//        return this.first == n.first.intern();// && this.last.equals(((Solution) o).last);
-//    }
-
     public static void main(String[] args) {
         Set<Solution> s = new HashSet<>();
         s.add(new Solution("Mickey", "Mouse"));
