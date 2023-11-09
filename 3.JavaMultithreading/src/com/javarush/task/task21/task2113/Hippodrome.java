@@ -15,11 +15,24 @@ public class Hippodrome {
         return horses;
     }
 
+    void run(){
+
+    }
+    void move(){
+
+    }
+
+    void print(){
+
+    }
+
+
+
     public static void main(String[] args) {
         List<Horse> horses1 = new ArrayList<>();
-        Horse horse1 = new Horse("Marusya", 3, 0);
-        Horse horse2 = new Horse("Loshad", 3, 0);
-        Horse horse3 = new Horse("Burka", 3, 0);
+        Horse horse1 = new Horse("Marusya", 3,0);
+        Horse horse2 = new Horse("Loshad", 3,0);
+        Horse horse3 = new Horse("Burka", 3,0);
         horses1.add(horse1);
         horses1.add(horse2);
         horses1.add(horse3);
