@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hippodrome {
-    static Hippodrome game;
+    public static Hippodrome game;
     private List<Horse> horses;
 
     public Hippodrome(List<Horse> horses) {
