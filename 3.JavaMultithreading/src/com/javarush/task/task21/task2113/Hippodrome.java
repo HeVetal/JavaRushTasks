@@ -22,35 +22,48 @@ public class Hippodrome {
             Thread.sleep(200);
         }
     }
-    void move(){
+
+    void move() {
         for (Horse hors : horses) {
             hors.move();
         }
     }
 
-    void print(){
+    void print() {
         for (Horse hors : horses) {
             hors.print();
         }
         for (int i = 0; i < 10; i++) {
             System.out.println();
         }
-
-
     }
 
+    public Horse getWinner() {
+        Horse horse = horses.get(0);
+        for (int i = 0; i < horses.size(); i++) {
+            if (horses.get(i).getDistance() > horse.getDistance()) {
+                horse = horses.get(i);
+            }
+        }
+        return horse;
+    }
+
+    public void printWinner() {
+        System.out.println("Winner is " + getWinner().name + "!");
+    }
 
 
     public static void main(String[] args) throws InterruptedException {
         List<Horse> horses = new ArrayList<>();
-        Horse horse1 = new Horse("Marusya", 3,0);
-        Horse horse2 = new Horse("Loshad", 3,0);
-        Horse horse3 = new Horse("Burka", 3,0);
+        Horse horse1 = new Horse("Marusya", 3, 0);
+        Horse horse2 = new Horse("Loshad", 3, 0);
+        Horse horse3 = new Horse("Burka", 3, 0);
         horses.add(horse1);
         horses.add(horse2);
         horses.add(horse3);
         Hippodrome hippodrome = new Hippodrome(horses);
         game = hippodrome;
         game.run();
+        game.printWinner();
     }
 }
