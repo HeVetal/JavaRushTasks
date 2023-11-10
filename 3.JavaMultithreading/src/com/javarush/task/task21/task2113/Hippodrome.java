@@ -39,8 +39,11 @@ public class Hippodrome {
     }
 
     public Horse getWinner() {
-        Horse horse = horses.get(0);
+        Horse horse = null;
         for (int i = 0; i < horses.size(); i++) {
+            if (i == 0) {
+                horse = horses.get(i);
+            }
             if (horses.get(i).getDistance() > horse.getDistance()) {
                 horse = horses.get(i);
             }
