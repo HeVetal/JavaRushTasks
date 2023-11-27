@@ -15,15 +15,15 @@ public class Snake {
 
     }
 
-    public int getX() {
+    int getX() {
         return sections.get(0).getX();
     }
 
-    public int getY() {
+    int getY() {
         return sections.get(0).getY();
     }
 
-    public void move() {
+    void move() {
 
     }
 
