@@ -1,0 +1,1 @@
+SELECT id, name, smth from employee
