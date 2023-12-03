@@ -25,8 +25,8 @@ public class Solution {
         String[] split = builder.toString().split(" ");
         List<String> list = new ArrayList<>(List.of(split));
         for (int i = 0; i < list.size(); i++) {
-            StringBuilder sb = new StringBuilder(list.get(i));
-            for (int j = 0; j < list.size(); j++) {
+            //StringBuilder sb = new StringBuilder(list.get(i));
+            for (int j = i + 1; j < list.size(); j++) {
                 if (new StringBuilder(list.get(j)).reverse().toString().equals(list.get(i))) {
                     //System.out.println(list.get(j) + j + sb.reverse());
                     Pair pair = new Pair();
