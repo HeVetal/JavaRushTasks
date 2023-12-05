@@ -32,9 +32,15 @@ public class Solution {
                     Pair pair = new Pair();
                     pair.second = list.get(j);
                     pair.first = list.get(i);
+                    if(result.contains(pair)){
+                     //   System.out.println(pair);
+                        break;
+                        //continue;
+                    }
+
                     list.remove(j);
                     result.add(pair);
-                    break;
+                    //break;
                 }
             }
         }
