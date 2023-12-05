@@ -1,10 +1,7 @@
 package com.javarush.task.task22.task2207;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /* 
 Обращенные слова
@@ -25,25 +22,27 @@ public class Solution {
         String[] split = builder.toString().split(" ");
         List<String> list = new ArrayList<>(List.of(split));
         for (int i = 0; i < list.size(); i++) {
-            //StringBuilder sb = new StringBuilder(list.get(i));
             for (int j = i + 1; j < list.size(); j++) {
                 if (new StringBuilder(list.get(j)).reverse().toString().equals(list.get(i))) {
                     //System.out.println(list.get(j) + j + sb.reverse());
                     Pair pair = new Pair();
                     pair.second = list.get(j);
                     pair.first = list.get(i);
-                    if(result.contains(pair)){
-                     //   System.out.println(pair);
-                        break;
-                        //continue;
-                    }
+//                    if(result.contains(pair)){
+//                     //   System.out.println(pair);
+//                        break;
+//                        //continue;
+//                    }
 
                     list.remove(j);
                     result.add(pair);
-                    //break;
+                    break;
                 }
             }
         }
+//        Set<Pair> set = new HashSet<>(result);
+//        result.clear();
+//        result.addAll(set);
         System.out.println(result);
     }
 
