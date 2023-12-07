@@ -17,7 +17,6 @@ public class Solution {
             while (reader.ready()) {
                 writer.write(reader.readLine());
                 writer.write(System.lineSeparator());
-
             }
         }
     }
