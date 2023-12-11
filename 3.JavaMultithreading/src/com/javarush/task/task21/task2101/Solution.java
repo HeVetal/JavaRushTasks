@@ -12,6 +12,7 @@ public class Solution {
         print(ip);          //11000000 10101000 00000001 00000010
         print(mask);        //11111111 11111111 11111110 00000000
         print(netAddress);  //11000000 10101000 00000000 00000000
+
     }
 
     public static byte[] getNetAddress(byte[] ip, byte[] mask) {
@@ -26,11 +27,10 @@ public class Solution {
         for (byte aByte : bytes) {
             String string = Integer.toBinaryString(Byte.toUnsignedInt(aByte));
             StringBuilder builder = new StringBuilder(string);
-            while (builder.length() != 8){
-                builder.insert(0,"0");
+            while (builder.length() != 8) {
+                builder.insert(0, "0");
             }
             System.out.print(builder + " ");
-
         }
         System.out.println();
     }
