@@ -1,0 +1,3 @@
+SELECT *
+FROM car
+LIMIT 3
