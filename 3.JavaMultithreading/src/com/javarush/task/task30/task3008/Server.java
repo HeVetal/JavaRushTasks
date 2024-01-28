@@ -34,6 +34,7 @@ public class Server {
         } catch (IOException e) {
             ConsoleHelper.writeMessage("Произошла ошибка при запуске или работе сервера");
         }
+
     }
 
     private static class Handler extends Thread {
@@ -76,6 +77,29 @@ public class Server {
                             " тип сообщения не соответствует протоколу");
                 }
             }
+        }
+
+        @Override
+        public void run() {
+            ConsoleHelper.writeMessage("Установленно новое соединение с удаленным адресом " +
+                    socket.getRemoteSocketAddress());
+            String userName = null;
+            try (Connection connection = new Connection(socket);) {
+                userName = serverHandshake(connection);
+                sendBroadcastMessage(new Message(MessageType.USER_ADDED, userName));
+                notifyUsers(connection, userName);
+                serverMainLoop(connection, userName);
+            } catch (IOException | ClassNotFoundException e) {
+
+                ConsoleHelper.writeMessage("Прозашла ошибка при обмене данными с удаленным адресом" +
+                        socket.getRemoteSocketAddress());
+            }
+            if (Objects.nonNull(userName)){
+                connectionMap.remove(userName);
+                sendBroadcastMessage(new Message(MessageType.USER_REMOVED, userName));
+            }
+            ConsoleHelper.writeMessage("соединение с удаленным адресом закрыто" +
+                    socket.getRemoteSocketAddress());
         }
     }
 }
