@@ -62,12 +62,12 @@ public class Client {
         }
         if (clientConnected) {
             ConsoleHelper.writeMessage("Соединение установлено. Для выхода наберите команду 'exit'.");
-            while (clientConnected){
+            while (clientConnected) {
                 String string = ConsoleHelper.readString();
-                if (string.equals("exit")){
+                if (string.equals("exit")) {
                     break;
                 }
-                if(shouldSendTextFromConsole()){
+                if (shouldSendTextFromConsole()) {
                     sendTextMessage(string);
                 }
             }
@@ -77,6 +77,25 @@ public class Client {
     }
 
     public class SocketThread extends Thread {
+        //Client client;
 
+        protected void processIncomingMessage(String message) {
+            ConsoleHelper.writeMessage(message);
+        }
+
+        protected void informAboutAddingNewUser(String userName) {
+            ConsoleHelper.writeMessage(userName + "Присоединился к чату");
+        }
+
+        protected void informAboutDeletingNewUser(String userName) {
+            ConsoleHelper.writeMessage(userName + "Покинул чат");
+        }
+
+        protected void notifyConnectionStatusChanged(boolean clientConnected) {
+            Client.this.clientConnected = clientConnected;
+            synchronized (Client.this) {
+                Client.this.notify();
+            }
+        }
     }
 }
