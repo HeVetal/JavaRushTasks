@@ -34,7 +34,7 @@ public class Server {
         } catch (IOException e) {
             ConsoleHelper.writeMessage("Произошла ошибка при запуске или работе сервера");
         }
-
+        
     }
 
     private static class Handler extends Thread {
