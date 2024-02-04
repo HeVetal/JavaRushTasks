@@ -6,6 +6,8 @@ import com.javarush.task.task30.task3008.Message;
 import com.javarush.task.task30.task3008.MessageType;
 
 import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class Client {
     protected Connection connection;
@@ -78,6 +80,19 @@ public class Client {
 
     public class SocketThread extends Thread {
 
+        @Override
+        public void run() {
+            String serverAddress = getServerAddress();
+            int serverPort = getServerPort();
+            try (Socket socket = new Socket(serverAddress, serverPort)){
+                connection = new Connection(socket);
+                clientHandshake();
+                clientMainLoop();
+            } catch (IOException | ClassNotFoundException e) {
+                notifyConnectionStatusChanged(false);
+            }
+        }
+
         protected void clientHandshake() throws IOException, ClassNotFoundException {
             while (true) {
                 Message message = connection.receive();
@@ -113,11 +128,11 @@ public class Client {
         }
 
         protected void informAboutAddingNewUser(String userName) {
-            ConsoleHelper.writeMessage(userName + "Присоединился к чату");
+            ConsoleHelper.writeMessage(userName + " Присоединился к чату");
         }
 
         protected void informAboutDeletingNewUser(String userName) {
-            ConsoleHelper.writeMessage(userName + "Покинул чат");
+            ConsoleHelper.writeMessage(userName + " Покинул чат");
         }
 
         protected void notifyConnectionStatusChanged(boolean clientConnected) {
