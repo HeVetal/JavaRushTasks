@@ -5,6 +5,8 @@ import com.javarush.task.task30.task3008.ConsoleHelper;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Objects;
 import java.util.Random;
 import java.util.logging.SimpleFormatter;
 
@@ -33,47 +35,42 @@ public class BotClient extends Client {
         @Override
         protected void processIncomingMessage(String message) {
             ConsoleHelper.writeMessage(message);
-            String[] split = message.split(":");
-            String name = split[0];
-            String text = split[1];
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat sdf;
-            switch (text) {
-                case "дата":
-                    sdf = new SimpleDateFormat("d.MM.yyyy");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "день":
-                    sdf = new SimpleDateFormat("d");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "месяц":
-                    sdf = new SimpleDateFormat("MMMM");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "год":
-                    sdf = new SimpleDateFormat("YYYY");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "время":
-                    sdf = new SimpleDateFormat("H:mm:ss");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "час":
-                    sdf = new SimpleDateFormat("H");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "минуты":
-                    sdf = new SimpleDateFormat("m");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                case "секунды":
-                    sdf = new SimpleDateFormat("s");
-                    BotClient.this.sendTextMessage("Информация для  " + name + ": " + sdf.format(calendar.getTime()));
-                    break;
-                default:
-                    ConsoleHelper.writeMessage("Неверная команда");
+            if (message.contains(":")) {
+                String[] split = message.split(":");
+                String name = split[0].trim();
+                String text = split[1].trim();
+                String format = null;
+                switch (text) {
+                    case "дата":
+                        format = "d.MM.YYYY";
+                        break;
+                    case "день":
+                        format = "d";
+                        break;
+                    case "месяц":
+                        format = "MMMM";
+                        break;
+                    case "год":
+                        format = "yyyy";
+                        break;
+                    case "время":
+                        format = "H:mm:ss";
+                        break;
+                    case "час":
+                        format = "H";
+                        break;
+                    case "минуты":
+                        format = "m";
+                        break;
+                    case "секунды":
+                        format = "s";
+                        break;
 
+                }
+                if (Objects.nonNull(format)) {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
+                    sendTextMessage("Информация для " + name + ": " + simpleDateFormat.format(new GregorianCalendar().getTime()));
+                }
             }
         }
 
