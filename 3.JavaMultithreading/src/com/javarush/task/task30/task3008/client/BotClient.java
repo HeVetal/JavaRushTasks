@@ -76,7 +76,7 @@ public class BotClient extends Client {
 
         @Override
         protected void clientMainLoop() throws IOException, ClassNotFoundException {
-            BotClient.this.sendTextMessage(
+            sendTextMessage(
                     "Привет чатику. Я бот. Понимаю команды: дата, день, месяц, год, время, час, минуты, секунды.");
             super.clientMainLoop();
         }
