@@ -17,21 +17,39 @@ public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneab
         addAll(collection);
     }
 
-
     @Override
     public boolean add(E e) {
-
         return map.put(e, PRESENT) == null;
     }
 
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return map.keySet().iterator();
     }
 
     @Override
     public int size() {
-        return 0;
+        return map.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return map.isEmpty();
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        return super.contains(o);
+    }
+
+    @Override
+    public void clear() {
+        map.clear();
+    }
+
+    @Override
+    public boolean remove(Object o) {
+        return super.remove(o);
     }
 }
