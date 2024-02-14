@@ -1,9 +1,6 @@
 package com.javarush.task.task37.task3707;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.util.*;
 
 import static com.javarush.task.task37.task3707.HashMapReflectionHelper.*;
@@ -70,6 +67,8 @@ public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneab
         }
     }
 
+
+    @Serial
     private void writeObject(ObjectOutputStream output) throws IOException {
         output.defaultWriteObject();
 
@@ -82,6 +81,7 @@ public class AmigoSet<E> extends AbstractSet<E> implements Serializable, Cloneab
         }
     }
 
+    @Serial
     @SuppressWarnings("unchecked")
     private void readObject(ObjectInputStream input) throws IOException, ClassNotFoundException {
         input.defaultReadObject();
