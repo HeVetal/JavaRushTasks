@@ -39,9 +39,9 @@ public abstract class BaseObject {
 
     public abstract void move();
 
-    public boolean intersects(BaseObject o) {
-        int distance = (int) Math.sqrt(Math.pow(o.getX() - this.getX(), 2) +
-                Math.pow(o.getY() - this.getY(), 2));
+    public boolean intersects(BaseObject o){
+        int distance = (int) Math.sqrt(Math.pow(o.getX() - this.getX(), 2)
+                + Math.pow(o.getY() - this.getY(), 2));
         return distance <= Math.max(o.getRadius(), this.getRadius());
     }
 }
