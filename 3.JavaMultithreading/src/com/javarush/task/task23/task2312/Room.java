@@ -82,11 +82,7 @@ public class Room {
 
             snake.move();   //двигаем змею
             print();        //отображаем текущее состояние игры
-            try {
-                sleep();        //пауза между ходами
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+            sleep();        //пауза между ходами
         }
 
         System.out.println("Game Over!");
@@ -97,6 +93,7 @@ public class Room {
         //Рисуем все кусочки змеи
         //Рисуем мышь
         //Выводим все это на экран
+
     }
 
     public void eatMouse() {
@@ -117,42 +114,50 @@ public class Room {
         game.run();
     }
 
-    public void sleep() throws InterruptedException {
+    public void sleep() {
         // делаем паузу, длинна которой зависит от длинны змеи
-        switch (snake.getSections().size()) {
-            case 1:
-                Thread.sleep(500);
-            case 2:
-                Thread.sleep(480);
-            case 3:
-                Thread.sleep(460);
-            case 4:
-                Thread.sleep(440);
-            case 5:
-                Thread.sleep(420);
-            case 6:
-                Thread.sleep(400);
-            case 7:
-                Thread.sleep(380);
-            case 8:
-                Thread.sleep(360);
-            case 9:
-                Thread.sleep(340);
-            case 10:
-                Thread.sleep(320);
-            case 11:
-                Thread.sleep(300);
-            case 12:
-                Thread.sleep(275);
-            case 13:
-                Thread.sleep(250);
-            case 14:
-                Thread.sleep(225);
-            case 15:
-                Thread.sleep(200);
-            default:
-                Thread.sleep(200);
-
+        int initDelay = 520;
+        int delayStep = 20;
+        int level = snake.getSections().size();
+        int delay = level < 15 ? initDelay - delayStep * level : 200;
+        try {
+            Thread.sleep(delay);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+//        switch (snake.getSections().size()) {
+//            case 1:
+//                Thread.sleep(500);
+//            case 2:
+//                Thread.sleep(480);
+//            case 3:
+//                Thread.sleep(460);
+//            case 4:
+//                Thread.sleep(440);
+//            case 5:
+//                Thread.sleep(420);
+//            case 6:
+//                Thread.sleep(400);
+//            case 7:
+//                Thread.sleep(380);
+//            case 8:
+//                Thread.sleep(360);
+//            case 9:
+//                Thread.sleep(340);
+//            case 10:
+//                Thread.sleep(320);
+//            case 11:
+//                Thread.sleep(300);
+//            case 12:
+//                Thread.sleep(275);
+//            case 13:
+//                Thread.sleep(250);
+//            case 14:
+//                Thread.sleep(225);
+//            case 15:
+//                Thread.sleep(200);
+//            default:
+//                Thread.sleep(200);
+//        }
     }
 }
