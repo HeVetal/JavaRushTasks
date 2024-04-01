@@ -10,21 +10,17 @@ import java.util.concurrent.TimeUnit;
 
 public class Solution {
     public static void main(String[] args) throws InterruptedException {
+
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         for (int i = 1; i < 11; i++) {
             int finalI = i;
-            Runnable task = ()-> doExpensiveOperation(finalI);
+            Runnable task = () -> doExpensiveOperation(finalI);
             executorService.submit(task);
         }
         executorService.shutdown();
         executorService.awaitTermination(5, TimeUnit.SECONDS);
-    }
 
-    private static void doExpensiveOperation(int localId) {
-        System.out.println(Thread.currentThread().getName() + ", localId=" + localId);
-    }
-}
-/* output example
+        /* output example
 pool-1-thread-2, localId=2
 pool-1-thread-1, localId=1
 pool-1-thread-3, localId=3
@@ -36,3 +32,9 @@ pool-1-thread-2, localId=6
 pool-1-thread-1, localId=10
 pool-1-thread-3, localId=8
          */
+    }
+
+    private static void doExpensiveOperation(int localId) {
+        System.out.println(Thread.currentThread().getName() + ", localId=" + localId);
+    }
+}
