@@ -22,7 +22,6 @@ public class Solution {
             thread.setDaemon(false);
             thread.setPriority(Thread.NORM_PRIORITY);
             thread.setName(nameThread + numberThread.getAndIncrement());
-            int dsf;
             return thread;
         }
     }
