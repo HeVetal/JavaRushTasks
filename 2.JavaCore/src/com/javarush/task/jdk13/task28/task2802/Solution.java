@@ -14,7 +14,7 @@ public class Solution {
 
     public static double getRandomDouble() {
 
-        return ThreadLocalRandom.current().nextDouble(0, 1);
+        return ThreadLocalRandom.current().nextDouble();
     }
 
     public static long getRandomLongBetween0AndN(long n) {
