@@ -10,17 +10,8 @@ public class CalculateFactorial implements Callable<Long> {
         this.number = number;
     }
 
-    public static Long calculate(Long number) {
-        long result = 1L;
-        while (number > 1) {
-            result *= number;
-            number--;
-        }
-        return result;
-    }
-
     @Override
-    public Long call() throws Exception {
+    public Long call() {
         long result = 1L;
         while (number > 1) {
             result *= number;

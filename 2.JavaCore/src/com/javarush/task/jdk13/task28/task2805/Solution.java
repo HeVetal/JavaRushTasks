@@ -9,7 +9,8 @@ import java.util.concurrent.FutureTask;
 public class Solution {
 
     public static void main(String[] args) throws Exception {
-        System.out.println(CalculateFactorial.calculate(35L));
+
+        System.out.println(new CalculateFactorial(35L).call());
 
         FutureTask<Long> future1 = new FutureTask<>(new CalculateFactorial(3L));
         FutureTask<Long> future2 = new FutureTask<>(new CalculateFactorial(10L));
