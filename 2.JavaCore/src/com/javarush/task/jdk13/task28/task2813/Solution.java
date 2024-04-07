@@ -32,8 +32,8 @@ public class Solution {
     }
 
     public static void submitConsumers() {
+        Runnable task = new Consumer();
         for (int i = 0; i < 100; i++) {
-            Runnable task = new Consumer();
             executorService.submit(task);
         }
     }
