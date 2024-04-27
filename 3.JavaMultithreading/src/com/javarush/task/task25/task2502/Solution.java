@@ -21,17 +21,17 @@ public class Solution {
         protected List<Wheel> wheels;
 
         public Car() {
-            //init wheels here
-//            Wheel[] values = Wheel.values();
-//            wheels = new ArrayList<>();
-//            for (int i = 0; i < 4; ) {
-//                wheels.get(i) = Wheel.valueOf(String.valueOf(values[i]).toString());
-//                i++;
-//            }
+            if (loadWheelNamesFromDB().length != 4) {
+                throw new IllegalArgumentException();
+            }
+
+            wheels = new ArrayList<>();
+            for (String wheelNames : loadWheelNamesFromDB()) {
+                wheels.add(Wheel.valueOf(wheelNames));
+            }
         }
 
         protected String[] loadWheelNamesFromDB() {
-            //this method returns mock data
             return new String[]{"FRONT_LEFT", "FRONT_RIGHT", "BACK_LEFT", "BACK_RIGHT"};
         }
     }
