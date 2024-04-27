@@ -3,41 +3,30 @@ package com.javarush.task.task22.task2208;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static javax.swing.UIManager.put;
-
 /* 
 Формируем WHERE
 */
 
 public class Solution {
     public static void main(String[] args) {
-        Map<String, String> map = new LinkedHashMap<>();
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
         map.put("name", "Ivanov");
-        map.put("country", "Ukraine");
-        map.put("city", null);
+        map.put("country", "Ukrain");
+        map.put("city", "Kiev");
         map.put("age", null);
-
         System.out.println(getQuery(map));
-
     }
 
     public static String getQuery(Map<String, String> params) {
-        if (params.isEmpty()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        //int count = 0;
-        for (Map.Entry<String, String> string : params.entrySet()) {
-            if (string.getValue() == null) {
-                //      count++;
-                continue;
+        StringBuilder builder = new StringBuilder();
+        for (Map.Entry<String, String> pair : params.entrySet()) {
+            if (pair.getValue() != null) {
+                builder.append(pair.getKey())
+                        .append(" = '")
+                        .append(pair.getValue())
+                        .append("' and ");
             }
-            sb.append(string.getKey()).append(" = ").append("'").append(string.getValue()).append("' ").append("end ");
-//            if(count < params.size()-1){
-//                sb.append("end ");
-//            }
-//            count++;
         }
-        return sb.toString().substring(0, sb.length() - 5);
+        return builder.substring(0,builder.lastIndexOf("'") + 1);
     }
 }
