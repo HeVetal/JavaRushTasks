@@ -16,19 +16,16 @@ public class Solution {
         this.last = last;
     }
 
-    public boolean equals(Object n) {
-        if (this == n) return true;
-        if (!(n instanceof Solution)) return false;
-        Solution that = (Solution) n;
-        if (this.first == null) return false;
-        if (this.last == null) return false;
-        return this.first.equals(that.first) && this.last.equals(that.last);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (!(o instanceof Solution)) return false;
+        Solution solution = (Solution) o;
+        return Objects.equals(first, solution.first) && Objects.equals(last, solution.last);
     }
 
     public int hashCode() {
-        int result = first != null ? first.hashCode() : 0;
-        result = 31 * result + (last != null ? last.hashCode() : 0);
-        return result;
+        return Objects.hash(first, last);
     }
 
     public static void main(String[] args) {
