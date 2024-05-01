@@ -21,6 +21,9 @@ public class View extends JFrame implements ActionListener {
         this.controller = controller;
     }
 
+    public void selectedTabChanged(){
+    }
+
     public void init() {
         initGui();
         FrameListener frameListener = new FrameListener(this);
