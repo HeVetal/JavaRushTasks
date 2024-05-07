@@ -33,6 +33,8 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void initMenuBar(){
+        JMenuBar jMenuBar = new JMenuBar();
+
 
     }
 
