@@ -34,6 +34,15 @@ public class View extends JFrame implements ActionListener {
 
     public void initMenuBar(){
         JMenuBar jMenuBar = new JMenuBar();
+        MenuHelper.initFileMenu(this,jMenuBar);
+        MenuHelper.initEditMenu(this,jMenuBar);
+        MenuHelper.initStyleMenu(this,jMenuBar);
+        MenuHelper.initAlignMenu(this,jMenuBar);
+        MenuHelper.initColorMenu(this,jMenuBar);
+        MenuHelper.initFontMenu(this, jMenuBar);
+        MenuHelper.initHelpMenu(this,jMenuBar);
+
+
 
 
     }
