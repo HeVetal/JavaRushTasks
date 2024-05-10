@@ -41,9 +41,8 @@ public class View extends JFrame implements ActionListener {
         MenuHelper.initColorMenu(this,jMenuBar);
         MenuHelper.initFontMenu(this, jMenuBar);
         MenuHelper.initHelpMenu(this,jMenuBar);
-        getContentPane();
-
-
+        Container contentPane = getContentPane();
+        contentPane.add(jMenuBar, BorderLayout.NORTH);
 
 
     }
@@ -76,4 +75,5 @@ public class View extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
 }
