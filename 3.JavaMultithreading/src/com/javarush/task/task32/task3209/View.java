@@ -30,7 +30,7 @@ public class View extends JFrame implements ActionListener {
         this.controller = controller;
     }
 
-    public void selectedTabChanged(){
+    public void selectedTabChanged() {
     }
 
     public void init() {
@@ -40,20 +40,20 @@ public class View extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    public void initMenuBar(){
+    public void initMenuBar() {
         JMenuBar jMenuBar = new JMenuBar();
-        MenuHelper.initFileMenu(this,jMenuBar);
-        MenuHelper.initEditMenu(this,jMenuBar);
-        MenuHelper.initStyleMenu(this,jMenuBar);
-        MenuHelper.initAlignMenu(this,jMenuBar);
-        MenuHelper.initColorMenu(this,jMenuBar);
+        MenuHelper.initFileMenu(this, jMenuBar);
+        MenuHelper.initEditMenu(this, jMenuBar);
+        MenuHelper.initStyleMenu(this, jMenuBar);
+        MenuHelper.initAlignMenu(this, jMenuBar);
+        MenuHelper.initColorMenu(this, jMenuBar);
         MenuHelper.initFontMenu(this, jMenuBar);
-        MenuHelper.initHelpMenu(this,jMenuBar);
+        MenuHelper.initHelpMenu(this, jMenuBar);
         Container contentPane = getContentPane();
         contentPane.add(jMenuBar, BorderLayout.NORTH);
     }
 
-    public void initEditor(){
+    public void initEditor() {
         htmlTextPane.setContentType("text/html");
         JScrollPane jScrollPane = new JScrollPane(htmlTextPane);
         tabbedPane.add("HTML", jScrollPane);
@@ -67,13 +67,13 @@ public class View extends JFrame implements ActionListener {
 
     }
 
-    public void initGui(){
+    public void initGui() {
         initMenuBar();
         initEditor();
         pack();
     }
 
-    public void exit(){
+    public void exit() {
         controller.exit();
     }
 
@@ -82,6 +82,13 @@ public class View extends JFrame implements ActionListener {
 
     }
 
+    public boolean canUndo() {
+        return false;
+    }
+
+    public boolean canRedo() {
+        return false;
+    }
 
 
 }
