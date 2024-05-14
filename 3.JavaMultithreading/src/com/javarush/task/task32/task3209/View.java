@@ -97,7 +97,7 @@ public class View extends JFrame implements ActionListener {
         return undoManager.canRedo();
     }
 
-    public void undo() {
+    public void undo(){
         try {
             undoManager.undo();
         } catch (CannotUndoException e) {
@@ -105,7 +105,7 @@ public class View extends JFrame implements ActionListener {
         }
     }
 
-    public void redo() {
+    public void redo(){
         try {
             undoManager.redo();
         } catch (CannotRedoException e) {
@@ -117,7 +117,7 @@ public class View extends JFrame implements ActionListener {
         return undoManager;
     }
 
-    public void resetUndo() {
+    public void resetUndo(){
         undoManager.discardAllEdits();
     }
 
