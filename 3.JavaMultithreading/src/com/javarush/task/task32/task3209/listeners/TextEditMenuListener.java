@@ -6,7 +6,12 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
 public class TextEditMenuListener implements MenuListener {
+
+    private View view;
+
+
     public TextEditMenuListener(View view) {
+    this.view = view;
     }
 
     @Override
