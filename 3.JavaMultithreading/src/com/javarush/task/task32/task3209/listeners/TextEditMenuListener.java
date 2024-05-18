@@ -13,7 +13,7 @@ public class TextEditMenuListener implements MenuListener {
 
 
     public TextEditMenuListener(View view) {
-    this.view = view;
+        this.view = view;
     }
 
     @Override
