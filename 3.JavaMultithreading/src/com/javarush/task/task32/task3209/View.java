@@ -126,6 +126,7 @@ public class View extends JFrame implements ActionListener {
     }
 
     public boolean isHtmlTabSelected() {
-        return true;
+
+        return tabbedPane.getSelectedIndex() == 0;
     }
 }
