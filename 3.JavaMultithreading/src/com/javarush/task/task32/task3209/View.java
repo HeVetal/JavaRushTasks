@@ -141,6 +141,6 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void showAbout(){
-
+        JOptionPane.showMessageDialog(tabbedPane,JOptionPane.INFORMATION_MESSAGE);
     }
 }
