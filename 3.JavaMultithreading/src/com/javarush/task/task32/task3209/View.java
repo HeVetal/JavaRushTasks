@@ -131,6 +131,7 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectHtmlTab(){
+        tabbedPane.setSelectedIndex(0);
         resetUndo();
 
     }
@@ -141,6 +142,6 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void showAbout(){
-        JOptionPane.showMessageDialog(tabbedPane,JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(tabbedPane,"Программа версии 1.0", "Информация о программе", JOptionPane.INFORMATION_MESSAGE);
     }
 }
