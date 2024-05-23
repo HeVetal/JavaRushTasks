@@ -31,4 +31,8 @@ public class Controller {
         view.init();
         controller.init();
     }
+
+    public void resetDocument(){
+
+    }
 }
