@@ -1,6 +1,8 @@
 package com.javarush.task.task32.task3209;
 
+import javax.swing.text.StyledEditorKit;
 import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 import java.io.File;
 
 public class Controller {
@@ -32,7 +34,9 @@ public class Controller {
         controller.init();
     }
 
-    public void resetDocument(){
-
+    public void resetDocument() {
+        if (document != null) {
+            document.removeUndoableEditListener(view.getUndoListener());
+        }
     }
 }
