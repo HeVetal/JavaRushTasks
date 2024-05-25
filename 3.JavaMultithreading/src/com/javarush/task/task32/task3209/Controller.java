@@ -38,5 +38,8 @@ public class Controller {
         if (document != null) {
             document.removeUndoableEditListener(view.getUndoListener());
         }
+        document = (HTMLDocument) new HTMLEditorKit().createDefaultDocument();
+        document.addUndoableEditListener(view.getUndoListener());
+        view.update();
     }
 }
