@@ -38,6 +38,13 @@ public class View extends JFrame implements ActionListener {
     }
 
     public void selectedTabChanged() {
+        int selectedIndex = tabbedPane.getSelectedIndex();
+        if (selectedIndex == 0) {
+            controller.setPlainText(plainTextPane.getText());
+        } else if (selectedIndex == 1) {
+            plainTextPane.setText(controller.getPlainText());
+        }
+        resetUndo();
     }
 
     public void init() {
@@ -130,18 +137,19 @@ public class View extends JFrame implements ActionListener {
         return tabbedPane.getSelectedIndex() == 0;
     }
 
-    public void selectHtmlTab(){
+    public void selectHtmlTab() {
         tabbedPane.setSelectedIndex(0);
         resetUndo();
 
     }
 
-    public void update(){
+    public void update() {
         htmlTextPane.setDocument(controller.getDocument());
 
     }
 
-    public void showAbout(){
-        JOptionPane.showMessageDialog(tabbedPane,"Программа версии 1.0", "Информация о программе", JOptionPane.INFORMATION_MESSAGE);
+    public void showAbout() {
+        JOptionPane.showMessageDialog(tabbedPane, "Программа версии 1.0", "Информация о программе", JOptionPane.INFORMATION_MESSAGE);
     }
+
 }
