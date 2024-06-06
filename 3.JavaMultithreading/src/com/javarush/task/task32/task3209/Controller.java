@@ -1,5 +1,6 @@
 package com.javarush.task.task32.task3209;
 
+import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.StyledEditorKit;
 import javax.swing.text.html.HTMLDocument;
@@ -78,6 +79,10 @@ public class Controller {
     }
 
     public void saveDocumentAs() {
+        view.selectHtmlTab();
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new HTMLFileFilter());
+
     }
 
     public void saveDocument() {
