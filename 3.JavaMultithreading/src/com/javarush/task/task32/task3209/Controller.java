@@ -82,7 +82,10 @@ public class Controller {
         view.selectHtmlTab();
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setFileFilter(new HTMLFileFilter());
+        jFileChooser.setDialogTitle("Save File");
+        if (jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION){
 
+        }
     }
 
     public void saveDocument() {
