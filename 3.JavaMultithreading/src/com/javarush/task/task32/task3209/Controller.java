@@ -83,9 +83,10 @@ public class Controller {
         if (jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION) {
             currentFile = jFileChooser.getSelectedFile();
             view.setTitle(currentFile.getName());
+
             try (FileWriter fileWriter = new FileWriter(currentFile)) {
                 new HTMLEditorKit().write(fileWriter, document, 0, document.getLength());
-            } catch (Exception e) {
+            }catch (Exception e){
                 ExceptionHandler.log(e);
             }
         }
