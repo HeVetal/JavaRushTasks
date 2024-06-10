@@ -73,6 +73,14 @@ public class Controller {
     }
 
     public void openDocument() {
+        view.selectHtmlTab();
+        JFileChooser jFileChooser = new JFileChooser;
+        jFileChooser.setFileFilter(new HTMLFileFilter());
+        jFileChooser.setDialogTitle("Save File");
+        if(jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION){
+
+        }
+
     }
 
     public void saveDocumentAs() {
@@ -93,6 +101,16 @@ public class Controller {
     }
 
     public void saveDocument() {
+        view.selectHtmlTab();
+        if(currentFile != null){
+            try (FileWriter fileWriter = new FileWriter(currentFile)) {
+                new HTMLEditorKit().write(fileWriter,document,0,document.getLength());
+            }catch (Exception e){
+                ExceptionHandler.log(e);
+            }
+        }else{
+            saveDocumentAs();
+        }
     }
 
 }
