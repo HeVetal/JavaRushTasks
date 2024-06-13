@@ -74,11 +74,19 @@ public class Controller {
 
     public void openDocument() {
         view.selectHtmlTab();
-        JFileChooser jFileChooser = new JFileChooser;
+        JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setFileFilter(new HTMLFileFilter());
         jFileChooser.setDialogTitle("Save File");
         if(jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION){
-
+            currentFile = jFileChooser.getSelectedFile();
+            resetDocument();
+            view.setTitle(currentFile.getName());
+            try (FileReader fileReader = new FileReader(currentFile)) {
+                new HTMLEditorKit().read(fileReader, document, 0);
+            }catch (Exception e){
+                ExceptionHandler.log(e);
+            }
+            view.resetUndo();
         }
 
     }
