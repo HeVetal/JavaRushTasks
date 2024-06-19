@@ -17,14 +17,18 @@ public class ZipFileManager {
     }
 
     public void createZip(Path source) throws Exception {
-        ZipOutputStream zipOutputStream = (ZipOutputStream) Files.newOutputStream(source);
-        ZipEntry zipEntry = new ZipEntry(source.getFileName().toString());
-        zipOutputStream.putNextEntry(zipEntry);
-        InputStream inputStream = Files.newInputStream(source,CREATE_NEW);
-        while (inputStream.markSupported()){
-            zipOutputStream.write(inputStream.read());
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toAbsolutePath()))) {
+            ZipEntry zipEntry = new ZipEntry(source.getFileName().toString());
+            zipOutputStream.putNextEntry(zipEntry);
+            try (InputStream inputStream = Files.newInputStream(source)) {
+                byte[] buffer = new byte[8 * 1024];
+                int len;
+                while ((len = inputStream.read(buffer)) > 0) {
+                    zipOutputStream.write(buffer, 0, len);
+                }
+                zipOutputStream.closeEntry();
+            }
         }
-
 
 
     }
