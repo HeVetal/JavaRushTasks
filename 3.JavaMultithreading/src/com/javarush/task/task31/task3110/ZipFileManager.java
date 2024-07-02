@@ -36,8 +36,10 @@ public class ZipFileManager {
     }
 
     private void copyData(InputStream in, OutputStream out) throws Exception{
-        while (in.available() > 0){
-            out.write(in.readAllBytes());
+        byte[] buffer = new byte[8 * 1024];
+        int len;
+        while ((len = in.read(buffer)) > 0) {
+            out.write(buffer, 0, len);
         }
     }
 }
