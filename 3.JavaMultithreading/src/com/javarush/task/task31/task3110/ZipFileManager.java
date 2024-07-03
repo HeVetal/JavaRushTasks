@@ -18,24 +18,27 @@ public class ZipFileManager {
         this.zipFile = zipFile;
     }
 
-    public void createZip(Path source) throws Exception {;
+    public void createZip(Path source) throws Exception {
+        ;
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toAbsolutePath()))) {
-            addNewZipEntry(zipOutputStream,source.getParent(),source.getFileName());
+            addNewZipEntry(zipOutputStream, source.getParent(), source.getFileName());
         }
     }
 
-    private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception{
-        byte[] buffer;
-        try (InputStream inputStream = Files.newInputStream(fileName)) {
-            ZipEntry zipEntry = new ZipEntry(fileName.toString());
-            zipOutputStream.putNextEntry(zipEntry);
-            buffer = new byte[inputStream.available()];
+    private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception {
+        Path fullPath = filePath.resolve(fileName);
+        try (InputStream inputStream = Files.newInputStream(fullPath)) {
+            ZipEntry entry = new ZipEntry(fileName.toString());
+
+            zipOutputStream.putNextEntry(entry);
+
+            copyData(inputStream, zipOutputStream);
+
+            zipOutputStream.closeEntry();
         }
-        zipOutputStream.write(buffer);
-        zipOutputStream.closeEntry();
     }
 
-    private void copyData(InputStream in, OutputStream out) throws Exception{
+    private void copyData(InputStream in, OutputStream out) throws Exception {
         byte[] buffer = new byte[8 * 1024];
         int len;
         while ((len = in.read(buffer)) > 0) {
