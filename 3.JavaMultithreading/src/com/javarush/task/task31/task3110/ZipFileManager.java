@@ -1,11 +1,14 @@
 package com.javarush.task.task31.task3110;
 
+import com.javarush.task.task31.task3110.exception.PathIsNotFoundException;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -19,9 +22,21 @@ public class ZipFileManager {
     }
 
     public void createZip(Path source) throws Exception {
-        ;
-        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile.toAbsolutePath()))) {
-            addNewZipEntry(zipOutputStream, source.getParent(), source.getFileName());
+        if(Files.notExists(zipFile.getParent())) {
+            Files.createDirectory(zipFile.getParent());
+        }
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(zipFile))) {
+            if(Files.isRegularFile(source)){
+                addNewZipEntry(zipOutputStream,source.getParent(),source.getFileName());
+            } else if (Files.isDirectory(source)) {
+                FileManager fileManager = new FileManager(source);
+                List<Path> fileNames = fileManager.getFileList();
+                for (Path fileName : fileNames) {
+                    addNewZipEntry(zipOutputStream,source,fileName);
+                }
+            } else {
+                throw new PathIsNotFoundException();
+            }
         }
     }
 
