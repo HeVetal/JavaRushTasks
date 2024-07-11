@@ -7,6 +7,13 @@ public class FileProperties {
     private long compressedSize;
     private int compressionMethod;
 
+    public FileProperties(String name, long size, long compressedSize, int compressionMethod) {
+        this.name = name;
+        this.size = size;
+        this.compressedSize = compressedSize;
+        this.compressionMethod = compressionMethod;
+    }
+
     public String getName() {
         return name;
     }
@@ -29,12 +36,17 @@ public class FileProperties {
 
     @Override
     public String toString() {
-        if (size < 0) {
-            return name;
+        StringBuilder builder = new StringBuilder();
+        builder.append(name);
+        if (size > 0) {
+            builder.append("\t");
+            builder.append(size / 1024);
+            builder.append(" Kb (");
+            builder.append(compressedSize / 1024);
+            builder.append(" Kb) сжатие: ");
+            builder.append(getCompressionRatio());
+            builder.append("%");
         }
-        return name + " " + size / 1024 +
-                ", compressedSize=" + compressedSize +
-                ", compressionMethod=" + compressionMethod +
-                '}';
+        return builder.toString();
     }
 }
