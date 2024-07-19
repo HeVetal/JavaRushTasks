@@ -17,7 +17,7 @@ public class ZipExtractCommand extends ZipCommand {
 
             ConsoleHelper.writeMessage("Введите полное имя файла или директории для распоковки:");
             Path sourcePath = Paths.get(ConsoleHelper.readString());
-            zipFileManager.createZip(sourcePath);
+            zipFileManager.ex(sourcePath);
 
             ConsoleHelper.writeMessage("Архив распокован.");
         } catch (PathIsNotFoundException e) {

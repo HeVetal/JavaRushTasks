@@ -100,4 +100,8 @@ public class ZipFileManager {
             out.write(buffer, 0, len);
         }
     }
+
+    void extractAll(Path outputFolder) throws Exception{
+        
+    }
 }
