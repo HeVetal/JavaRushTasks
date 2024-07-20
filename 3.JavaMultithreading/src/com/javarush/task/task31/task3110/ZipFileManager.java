@@ -4,6 +4,7 @@ import com.javarush.task.task31.task3110.exception.PathIsNotFoundException;
 import com.javarush.task.task31.task3110.exception.WrongZipFileException;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.file.Files;
@@ -102,6 +103,8 @@ public class ZipFileManager {
     }
 
     void extractAll(Path outputFolder) throws Exception{
-        
+        if(Files.exists(outputFolder)){
+            File file = Files.createDirectories(outputFolder).toFile();
+        }
     }
 }
