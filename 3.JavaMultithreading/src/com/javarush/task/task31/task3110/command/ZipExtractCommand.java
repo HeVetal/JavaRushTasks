@@ -17,10 +17,10 @@ public class ZipExtractCommand extends ZipCommand {
 
             ConsoleHelper.writeMessage("Введите полное имя файла или директории для распоковки:");
             Path sourcePath = Paths.get(ConsoleHelper.readString());
-            zipFileManager.ex(sourcePath);
+            zipFileManager.extractAll(sourcePath);
 
             ConsoleHelper.writeMessage("Архив распокован.");
-        } catch (PathIsNotFoundException e) {
+        } catch (Exception e) {
             ConsoleHelper.writeMessage("Вы неверно указали имя файла или директории.");
         }
     }
