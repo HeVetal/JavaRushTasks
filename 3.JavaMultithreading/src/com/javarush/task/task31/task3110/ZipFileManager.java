@@ -135,6 +135,18 @@ public class ZipFileManager {
     }
 
     public void removeFiles(List<Path> pathList) throws Exception{
+        if(pathList == null){
+            throw new WrongZipFileException();
+        }
+        Path tempFile = Files.createTempFile(".zip", null);
+        for (Path path : tempFile) {
+
+        }
+
+    }
+
+    public void removeFile(Path path) throws Exception{
+
 
     }
 }
