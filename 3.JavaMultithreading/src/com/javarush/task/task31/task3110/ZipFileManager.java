@@ -146,7 +146,6 @@ public class ZipFileManager {
     }
 
     public void removeFile(Path path) throws Exception{
-
-
+        removeFiles(Collections.singletonList(path));
     }
 }
