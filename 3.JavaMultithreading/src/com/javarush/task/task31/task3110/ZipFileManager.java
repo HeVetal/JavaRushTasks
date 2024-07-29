@@ -135,7 +135,7 @@ public class ZipFileManager {
     }
 
     public void removeFiles(List<Path> pathList) throws Exception{
-        if(pathList == null){
+        if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
         }
         Path tempFile = Files.createTempFile(".zip", null);
