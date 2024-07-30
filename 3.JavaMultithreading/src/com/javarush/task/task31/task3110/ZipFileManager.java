@@ -140,7 +140,11 @@ public class ZipFileManager {
         }
         Path tempFile = Files.createTempFile(".zip", null);
         for (Path path : tempFile) {
+            if(path.equals(zipFile)){
+                System.out.println("Удаляем файл " + path.getFileName());
+            }else {
 
+            }
         }
 
     }
