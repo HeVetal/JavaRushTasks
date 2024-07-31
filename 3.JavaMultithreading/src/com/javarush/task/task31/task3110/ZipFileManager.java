@@ -134,22 +134,19 @@ public class ZipFileManager {
         }
     }
 
-    public void removeFiles(List<Path> pathList) throws Exception{
+    public void removeFiles(List<Path> pathList) throws Exception {
         if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
         }
         Path tempFile = Files.createTempFile(".zip", null);
-        for (Path path : tempFile) {
-            if(path.equals(zipFile)){
-                System.out.println("Удаляем файл " + path.getFileName());
-            }else {
 
-            }
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempFile))) {
         }
-
     }
 
-    public void removeFile(Path path) throws Exception{
+
+    public void removeFile(Path path) throws Exception {
         removeFiles(Collections.singletonList(path));
     }
 }
+
