@@ -141,6 +141,9 @@ public class ZipFileManager {
         Path tempFile = Files.createTempFile(".zip", null);
 
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempFile))) {
+            try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))){
+
+            }
         }
     }
 
