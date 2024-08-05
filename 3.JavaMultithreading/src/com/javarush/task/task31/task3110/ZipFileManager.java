@@ -128,12 +128,16 @@ public class ZipFileManager {
         Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
-    void addFiles(List<Path> absolutePathList) throws Exception{
+    void addFiles(List<Path> absolutePathList) throws Exception {
         if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
         }
         Path tempZipFile = Files.createTempFile(null, null);
+        try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempZipFile))) {
+            try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))) {
 
+            }
+        }
     }
 
     public List<FileProperties> getFilesList() throws Exception {
