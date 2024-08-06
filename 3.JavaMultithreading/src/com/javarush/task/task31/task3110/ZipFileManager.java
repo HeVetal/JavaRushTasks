@@ -133,9 +133,22 @@ public class ZipFileManager {
             throw new WrongZipFileException();
         }
         Path tempZipFile = Files.createTempFile(null, null);
+        List<Path> archiveFiles = new ArrayList<>();
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempZipFile))) {
             try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))) {
+                ZipEntry zipEntry = zipInputStream.getNextEntry();
+                while (zipEntry != null){
+                    String fileName = zipEntry.getName();
+                    archiveFiles.add(Paths.get(fileName));
 
+                    zipOutputStream.putNextEntry(new ZipEntry(fileName));
+                    copyData(zipInputStream,zipOutputStream);
+
+                    zipInputStream.closeEntry();
+                    zipOutputStream.closeEntry();
+
+                    zipEntry = zipInputStream.getNextEntry();
+                }
             }
         }
     }
