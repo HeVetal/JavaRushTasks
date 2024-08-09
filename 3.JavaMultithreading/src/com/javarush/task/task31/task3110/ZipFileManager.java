@@ -144,6 +144,7 @@ public class ZipFileManager {
                     zipOutputStream.putNextEntry(new ZipEntry(fileName));
                     copyData(zipInputStream, zipOutputStream);
 
+
                     zipInputStream.closeEntry();
                     zipOutputStream.closeEntry();
 
