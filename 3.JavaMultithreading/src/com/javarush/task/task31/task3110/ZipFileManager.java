@@ -165,6 +165,7 @@ public class ZipFileManager {
                     throw new PathIsNotFoundException();
             }
         }
+        Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
     public void addFile(Path absolutePath) throws Exception {
