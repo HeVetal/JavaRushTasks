@@ -10,7 +10,6 @@ import java.nio.file.Paths;
 public class ZipAddCommand extends ZipCommand {
     @Override
     public void execute() throws Exception {
-
         try {
             ConsoleHelper.writeMessage("Добавление нового файла в архив.");
 
@@ -27,6 +26,4 @@ public class ZipAddCommand extends ZipCommand {
             ConsoleHelper.writeMessage("Файл не был найден.");
         }
     }
-
 }
-

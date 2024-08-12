@@ -128,14 +128,23 @@ public class ZipFileManager {
         Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
+    public void addFile(Path absolutePath) throws Exception {
+        addFiles(Collections.singletonList(absolutePath));
+    }
+
     public void addFiles(List<Path> absolutePathList) throws Exception {
+        // Проверяем существует ли zip файл
         if (!Files.isRegularFile(zipFile)) {
             throw new WrongZipFileException();
         }
+
+        // Создаем временный файл
         Path tempZipFile = Files.createTempFile(null, null);
         List<Path> archiveFiles = new ArrayList<>();
+
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(Files.newOutputStream(tempZipFile))) {
             try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile))) {
+
                 ZipEntry zipEntry = zipInputStream.getNextEntry();
                 while (zipEntry != null) {
                     String fileName = zipEntry.getName();
@@ -144,7 +153,6 @@ public class ZipFileManager {
                     zipOutputStream.putNextEntry(new ZipEntry(fileName));
                     copyData(zipInputStream, zipOutputStream);
 
-
                     zipInputStream.closeEntry();
                     zipOutputStream.closeEntry();
 
@@ -152,7 +160,7 @@ public class ZipFileManager {
                 }
             }
 
-
+            // Архивируем новые файлы
             for (Path file : absolutePathList) {
                 if (Files.isRegularFile(file)) {
                     if (archiveFiles.contains(file.getFileName()))
@@ -165,11 +173,9 @@ public class ZipFileManager {
                     throw new PathIsNotFoundException();
             }
         }
-        Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
-    }
 
-    public void addFile(Path absolutePath) throws Exception {
-        addFiles(Collections.singletonList(absolutePath));
+        // Перемещаем временный файл на место оригинального
+        Files.move(tempZipFile, zipFile, StandardCopyOption.REPLACE_EXISTING);
     }
 
     public List<FileProperties> getFilesList() throws Exception {
