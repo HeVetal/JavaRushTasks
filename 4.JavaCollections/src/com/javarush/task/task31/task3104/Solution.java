@@ -48,6 +48,7 @@ public class Solution extends SimpleFileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+        failed.add(file.toString());
         return super.visitFileFailed(file, exc);
     }
 }
