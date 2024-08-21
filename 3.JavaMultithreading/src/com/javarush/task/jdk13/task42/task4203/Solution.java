@@ -2,6 +2,7 @@ package com.javarush.task.jdk13.task42.task4203;
 
 import java.util.*;
 import java.util.concurrent.*;
+import java.util.stream.IntStream;
 
 /* 
 10 плюс 20 будет 20
@@ -13,7 +14,7 @@ public class Solution {
     private static final int TIMEOUT = 10;
 
     private static final Integer[] ARRAY = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    private static final List<Integer> LIST = new ArrayList<>(List.of(ARRAY));
+    private static final CopyOnWriteArrayList<Integer> LIST = new CopyOnWriteArrayList<>(List.of(ARRAY));
 
     public static void main(String[] args) throws InterruptedException {
         System.out.print("List before: ");
@@ -21,22 +22,7 @@ public class Solution {
 
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-        for (int i = 1; i <= COUNT; i++) {
-            final Integer element = i;
-            Runnable task = () -> {
-                boolean isAbsent = true;
-                for (Integer integer : LIST) {
-                    if (integer.equals(element)) {
-                        isAbsent = false;
-                        break;
-                    }
-                }
-                if (isAbsent) {
-                    LIST.add(element);
-                }
-            };
-            executor.submit(task);
-        }
+        IntStream.rangeClosed(1, COUNT).forEach(i -> executor.submit(() -> LIST.addIfAbsent(i)));
 
         executor.awaitTermination(TIMEOUT, TimeUnit.MILLISECONDS);
 

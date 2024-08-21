@@ -1,6 +1,7 @@
 package com.javarush.task.jdk13.task42.task4202;
 
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /* 
 Кто первый встал, того и тапки
@@ -9,7 +10,7 @@ import java.util.concurrent.*;
 public class Solution {
     private static final int COUNT = 5;
     private static final int TIMEOUT = 10;
-    private static Boolean isHit = false;
+    private static AtomicBoolean isHit = new AtomicBoolean();
 
     public static void main(final String[] arguments) throws InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(COUNT);
@@ -37,11 +38,10 @@ public class Solution {
 
         @Override
         public void run() {
-            System.out.println("Did someone hit? " + isHit);
-            if (!isHit) {
+            System.out.println("Did someone hit?1 " + isHit + " id " + id) ;
+            if (isHit.compareAndSet(false, true)) {
                 System.out.println("The shooter #" + id + " hit!");
-                isHit = true;
-                System.out.println("Did someone hit? " + isHit);
+                System.out.println("Did someone hit?2 " + isHit + " id " + id);
             }
         }
     }
