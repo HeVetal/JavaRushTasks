@@ -17,12 +17,12 @@ public class Developer implements Callable<Boolean> {
     @Override
     public Boolean call() {
         while (countDownLatch.getCount() > 0) {
+            countDownLatch.countDown();
             System.out.printf("Написано %d строк кода.\n", codeLines.addAndGet(1000));
             try {
                 TimeUnit.MILLISECONDS.sleep(100);
             } catch (InterruptedException ignored) {
             }
-            countDownLatch.countDown();
         }
         return true;
     }
