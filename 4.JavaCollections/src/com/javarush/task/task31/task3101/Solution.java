@@ -15,8 +15,18 @@ import java.util.TreeMap;
 
 public class Solution {
     public static void main(String[] args) {
+//        Path path = Path.of(args[0]);
+//        Path resultFileAbsolutePath = Paths.get(args[1]);
+//        FileUtils.renameFile(resultFileAbsolutePath, Paths.get(allFilesContent.txt));
         String path = args[0];
         String resultFileAbsolutePath = args[1];
-        FileUtils.renameFile(new File(resultFileAbsolutePath), new File("allFilesContent.txt"));
+        try {
+            File resultFile = new File(resultFileAbsolutePath);
+            File dest = new File(resultFile.getParentFile() + "/allFilesContent.txt ");
+            FileUtils.renameFile(resultFile, dest);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
