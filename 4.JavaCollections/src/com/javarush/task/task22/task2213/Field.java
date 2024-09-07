@@ -8,7 +8,7 @@ public class Field {
     public Field(int width, int height) {
         this.width = width;
         this.height = height;
-        this.matrix = new int[height][width];
+        matrix = new int[height][width];
     }
 
     public int getWidth() {
@@ -24,16 +24,26 @@ public class Field {
     }
 
     public void print() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (matrix[i][j] == 0) {
+                    System.out.print(".");
+                } else {
+                    System.out.print("X");
+                }
+                System.out.println();
+            }
+        }
     }
 
     public void removeFullLines() {
     }
 
-    public Integer getValue(int x, int y){
+    public Integer getValue(int x, int y) {
         return null;
     }
 
-    void setValue(int x, int y, int value){
-        matrix[x][y] = value;
+    void setValue(int x, int y, int value) {
+
     }
 }
