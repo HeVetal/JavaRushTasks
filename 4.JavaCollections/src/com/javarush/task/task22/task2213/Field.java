@@ -105,6 +105,11 @@ public class Field {
      * Удаляем заполненные линии
      */
     public void removeFullLines() {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+
+            }
+        }
         //Например так:
         //Создаем список для хранения линий
         //Копируем все неполные линии в список.
