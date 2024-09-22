@@ -106,8 +106,9 @@ public class Field {
      */
     public void removeFullLines() {
         for (int i = 0; i < height; i++) {
+            int count = 0;
             for (int j = 0; j < width; j++) {
-
+                count += matrix[i][j];
             }
         }
         //Например так:
