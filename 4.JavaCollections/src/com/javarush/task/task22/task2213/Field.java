@@ -105,17 +105,17 @@ public class Field {
      * Удаляем заполненные линии
      */
     public void removeFullLines() {
+        //Например так:
+        //Создаем список для хранения линий
+        ArrayList<int[]> lines = new ArrayList<>();
+
+        //Копируем все неполные линии в список.
         for (int i = 0; i < height; i++) {
             int count = 0;
             for (int j = 0; j < width; j++) {
                 count += matrix[i][j];
             }
         }
-        //Например так:
-        //Создаем список для хранения линий
-        ArrayList<int[]> lines = new ArrayList<>();
-
-        //Копируем все неполные линии в список.
         //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
     }
