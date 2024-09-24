@@ -115,6 +115,8 @@ public class Field {
             for (int j = 0; j < width; j++) {
                 count += matrix[i][j];
             }
+            if (count != width)
+                lines.add(matrix[i]);
         }
         //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
