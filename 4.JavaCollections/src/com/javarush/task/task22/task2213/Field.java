@@ -118,6 +118,10 @@ public class Field {
             if (count != width)
                 lines.add(matrix[i]);
         }
+
+        while (lines.size() < height) {
+            lines.add(0, new int[width]);
+        }
         //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
     }
