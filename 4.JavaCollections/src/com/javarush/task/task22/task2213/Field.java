@@ -119,11 +119,11 @@ public class Field {
                 lines.add(matrix[i]);
         }
 
+        //Добавляем недостающие строки в начало списка.
         while (lines.size() < height) {
             lines.add(0, new int[width]);
         }
-        matrix = lines.toArray(new int[height][width]);
-        //Добавляем недостающие строки в начало списка.
         //Преобразуем список обратно в матрицу
+        matrix = lines.toArray(new int[height][width]);
     }
 }
