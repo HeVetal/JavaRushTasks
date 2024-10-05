@@ -23,13 +23,21 @@ public class Figure {
         return matrix;
     }
 
-    public void left(){}
+    public void left(){
+        left();
+    }
 
-    public void right(){}
+    public void right(){
+        right();
+    }
 
-    public void down(){}
+    public void down(){
+        down();
+    }
 
-    public void up(){}
+    public void up(){
+        up();
+    }
 
     public void rotate(){}
 
