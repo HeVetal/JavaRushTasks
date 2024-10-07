@@ -24,7 +24,9 @@ public class Figure {
     }
 
     public void left(){
-        left();
+        x--;
+        if (!isCurrentPositionAvailable())
+            x++;
     }
 
     public void right(){
