@@ -34,7 +34,8 @@ public class Figure {
     }
 
     public void down(){
-        down();
+
+        y++;
     }
 
     public void up(){
