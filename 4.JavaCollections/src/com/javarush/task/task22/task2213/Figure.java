@@ -30,7 +30,10 @@ public class Figure {
     }
 
     public void right(){
-        right();
+
+        x++;
+        if (!isCurrentPositionAvailable())
+            x--;;
     }
 
     public void down(){
