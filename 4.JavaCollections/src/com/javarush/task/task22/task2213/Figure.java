@@ -42,7 +42,7 @@ public class Figure {
     }
 
     public void up(){
-        up();
+        y--;
     }
 
     public void rotate(){}
