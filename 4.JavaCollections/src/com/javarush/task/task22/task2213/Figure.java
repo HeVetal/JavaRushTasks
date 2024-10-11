@@ -45,7 +45,9 @@ public class Figure {
         y--;
     }
 
-    public void rotate(){}
+    public void rotate(){
+        int[][] matrix2 = new int[3][3];
+    }
 
     public void downMaximum(){}
 
