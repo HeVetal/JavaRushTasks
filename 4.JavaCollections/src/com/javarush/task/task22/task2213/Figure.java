@@ -52,6 +52,7 @@ public class Figure {
                 matrix2[i][j] = matrix[j][i];
             }
         }
+        matrix = matrix2;
     }
 
     public void downMaximum(){}
