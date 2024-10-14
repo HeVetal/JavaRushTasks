@@ -46,7 +46,6 @@ public class Tetris {
         figure = FigureFactory.createRandomFigure(field.getWidth() / 2, 0);
 
         //пока игра не окончена
-
         while (!isGameOver) {
             //"наблюдатель" содержит события о нажатии клавиш?
             if (keyboardObserver.hasKeyEvents()) {
@@ -78,7 +77,7 @@ public class Tetris {
     }
 
     public void step() {
-        //опускам фигурку вниз
+        //опускаем фигурку вниз
         figure.down();
 
         //если разместить фигурку на текущем месте невозможно
