@@ -1,15 +1,17 @@
 package com.javarush.task.task23.task2312;
 
+
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+/**
+ * Основной класс программы.
+ */
 public class Room {
     private int width;
     private int height;
     private Snake snake;
     private Mouse mouse;
-
-    public static Room game;
 
     public Room(int width, int height, Snake snake) {
         this.width = width;
@@ -86,9 +88,13 @@ public class Room {
             sleep();        //пауза между ходами
         }
 
+        //Выводим сообщение "Game Over"
         System.out.println("Game Over!");
     }
 
+    /**
+     * Выводим на экран текущее состояние игры
+     */
     public void print() {
         //Создаем массив, куда будем "рисовать" текущее состояние игры
         int[][] matrix = new int[height][width];
@@ -106,7 +112,7 @@ public class Room {
         matrix[mouse.getY()][mouse.getX()] = 3;
 
         //Выводим все это на экран
-        String[] symbols = {".", "x", "X", "^", "*"};
+        String[] symbols = {" . ", " x ", " X ", "^_^", "RIP"};
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 System.out.print(symbols[matrix[y][x]]);
@@ -116,19 +122,27 @@ public class Room {
         System.out.println();
         System.out.println();
         System.out.println();
-
     }
 
+    /**
+     * Метод вызывается, когда мышь съели
+     */
     public void eatMouse() {
         createMouse();
     }
 
+    /**
+     * Создает новую мышь
+     */
     public void createMouse() {
         int x = (int) (Math.random() * width);
         int y = (int) (Math.random() * height);
 
         mouse = new Mouse(x, y);
     }
+
+
+    public static Room game;
 
     public static void main(String[] args) {
         game = new Room(20, 20, new Snake(10, 10));
@@ -137,50 +151,19 @@ public class Room {
         game.run();
     }
 
+
+    private int initialDelay = 520;
+    private int delayStep = 20;
+
+    /**
+     * Программа делает паузу, длинна которой зависит от длинны змеи.
+     */
     public void sleep() {
-        // делаем паузу, длинна которой зависит от длинны змеи
-        int initDelay = 520;
-        int delayStep = 20;
-        int level = snake.getSections().size();
-        int delay = level < 15 ? initDelay - delayStep * level : 200;
         try {
+            int level = snake.getSections().size();
+            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
             Thread.sleep(delay);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
-//        switch (snake.getSections().size()) {
-//            case 1:
-//                Thread.sleep(500);
-//            case 2:
-//                Thread.sleep(480);
-//            case 3:
-//                Thread.sleep(460);
-//            case 4:
-//                Thread.sleep(440);
-//            case 5:
-//                Thread.sleep(420);
-//            case 6:
-//                Thread.sleep(400);
-//            case 7:
-//                Thread.sleep(380);
-//            case 8:
-//                Thread.sleep(360);
-//            case 9:
-//                Thread.sleep(340);
-//            case 10:
-//                Thread.sleep(320);
-//            case 11:
-//                Thread.sleep(300);
-//            case 12:
-//                Thread.sleep(275);
-//            case 13:
-//                Thread.sleep(250);
-//            case 14:
-//                Thread.sleep(225);
-//            case 15:
-//                Thread.sleep(200);
-//            default:
-//                Thread.sleep(200);
-//        }
     }
 }
