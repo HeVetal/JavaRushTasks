@@ -19,6 +19,9 @@ public class Solution {
     }
 
     public static Object convertOneToAnother(Object one, Class resultClassObject) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.writeValueAsString(one);
+        //one.toString().replaceFirst();
         return null;
     }
 
