@@ -20,9 +20,11 @@ public class Solution {
 
     public static Object convertOneToAnother(Object one, Class resultClassObject) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValueAsString(one);
+        String string = mapper.writeValueAsString(one);
+        string.replaceFirst(one.getClass().getName(), resultClassObject.getName());
+        Object object = mapper.readValue(string, resultClassObject);
         //one.toString().replaceFirst();
-        return null;
+        return object;
     }
 
     @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "className")
