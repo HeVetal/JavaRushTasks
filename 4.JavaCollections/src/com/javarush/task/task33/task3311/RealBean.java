@@ -20,14 +20,17 @@ public class RealBean {
         this.name = name;
     }
 
+
     public int getId() {
         return id;
     }
+
 
     public String getName() {
         return name;
     }
 
+    @JsonAnyGetter
     public Map<String, Object> getAdditionalMap() {
         return additionalMap;
     }
