@@ -17,14 +17,16 @@ public class Solution {
     }
 
     public static String compareStudentGrades(Student studentOne, Student studentTwo) {
-        //напишите тут ваш код
-        //if (ObjectUtils.anyNull(studentOne, studentTwo)) return "Make sure there are no null objects";
-        int studentOneGrades = studentOne.getBiologyScore() + studentOne.getChemistryScore() + studentOne.getEnglishScore()
-                + studentOne.getGeographyScore() + studentOne.getHistoryScore() + studentOne.getMathScore() + studentTwo.getPhysicsScore();
+        if (!ObjectUtils.anyNotNull(studentOne, studentTwo)) return "Make sure there are no null objects";
 
-        int studentTwoGrades = studentTwo.getBiologyScore() + studentTwo.getChemistryScore() + studentTwo.getEnglishScore()
-                + studentTwo.getGeographyScore() + studentTwo.getHistoryScore() + studentTwo.getMathScore() + studentTwo.getPhysicsScore();
-        int compare = ObjectUtils.compare(studentOneGrades, studentTwoGrades);
+        int compare = 0;
+        compare = compare + ObjectUtils.compare(studentOne.getMathScore(), studentTwo.getMathScore());
+        compare = compare + ObjectUtils.compare(studentOne.getBiologyScore(), studentTwo.getBiologyScore());
+        compare = compare + ObjectUtils.compare(studentOne.getChemistryScore(), studentTwo.getChemistryScore());
+        compare = compare + ObjectUtils.compare(studentOne.getHistoryScore(), studentTwo.getHistoryScore());
+        compare = compare + ObjectUtils.compare(studentOne.getEnglishScore(), studentTwo.getEnglishScore());
+        compare = compare + ObjectUtils.compare(studentOne.getGeographyScore(), studentTwo.getGeographyScore());
+        compare = compare + ObjectUtils.compare(studentOne.getPhysicsScore(), studentTwo.getPhysicsScore());
 
         if (compare > 0) return studentOne.getName() + " has a higher grades score";
         else if (compare < 0) return studentTwo.getName() + "has a higher grades score";
