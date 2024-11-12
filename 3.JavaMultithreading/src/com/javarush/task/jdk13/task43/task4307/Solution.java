@@ -28,7 +28,8 @@ public class Solution {
 //                }
 //            }
 //        }
-        System.out.println(Arrays.stream(values).filter(Objects::nonNull).findFirst().get());
+        Arrays.stream(values).filter(Objects::nonNull).findFirst().ifPresent(System.out::println);
+
     }
 
     public static void printDefaultValueIfNullObject(final String[] values, final String defaultValue) {
@@ -41,6 +42,7 @@ public class Solution {
 
 //        Arrays.asList(values).replaceAll(s -> Objects.isNull(s) ? defaultValue : s);
 //        Arrays.stream(values).forEach(System.out::println);
-        Arrays.stream(values).map(s -> s != null ? s : defaultValue).forEach(System.out::println);
+        //Arrays.stream(values).map(s -> s != null ? s : defaultValue).forEach(System.out::println);
+        Arrays.stream(values).map(s -> Objects.requireNonNullElse(s,defaultValue)).forEach(System.out::println);
     }
 }
