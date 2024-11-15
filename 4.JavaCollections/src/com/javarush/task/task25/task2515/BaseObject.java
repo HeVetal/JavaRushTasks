@@ -40,4 +40,20 @@ public abstract class BaseObject {
     public boolean isAlive() {
         return isAlive;
     }
+
+    public void draw(){
+
+    }
+
+    public void move(){
+
+    }
+
+    public void die(){
+        isAlive = false;
+    }
+
+    public boolean isIntersect(BaseObject o){
+        return true;
+    }
 }
