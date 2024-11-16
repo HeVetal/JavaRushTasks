@@ -54,6 +54,9 @@ public abstract class BaseObject {
     }
 
     public boolean isIntersect(BaseObject o){
+
+        double dx = x - o.x;
+        double dy = y - o.y;
         return true;
     }
 }
