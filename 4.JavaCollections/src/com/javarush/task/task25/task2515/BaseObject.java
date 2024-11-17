@@ -57,6 +57,8 @@ public abstract class BaseObject {
 
         double dx = x - o.x;
         double dy = y - o.y;
-        return true;
+        double distance = Math.sqrt(dx * dx + dy * dy);
+        double distance2 = Math.max(radius, o.radius);
+        return distance <= distance2;
     }
 }
