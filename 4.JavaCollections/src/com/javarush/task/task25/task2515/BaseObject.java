@@ -1,16 +1,22 @@
 package com.javarush.task.task25.task2515;
 
+/**
+ * Базовый класс для всех объектов игры.
+ */
 public abstract class BaseObject {
-    private double x;
-    private double y;
-    private double radius;
+    //координаты
+    protected double x;
+    protected double y;
+    //радиус объекта
+    protected double radius;
+    //состояние объект - жив ли объект
     private boolean isAlive;
 
     public BaseObject(double x, double y, double radius) {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        isAlive = true;
+        this.isAlive = true;
     }
 
     public double getX() {
@@ -37,24 +43,46 @@ public abstract class BaseObject {
         this.radius = radius;
     }
 
+    /**
+     * Метод рисует свой объект на "канвасе".
+     */
+    public void draw(Canvas canvas) {
+        //do nothing
+    }
+
+    /**
+     * Двигаем себя на один ход.
+     */
+    public void move() {
+        //do nothing
+    }
+
+    /**
+     * Проверяем - не выходит ли (x,y) за границы.
+     */
+    public void checkBorders(double minx, double maxx, double miny, double maxy) {
+        if (x < minx) x = minx;
+        if (x > maxx) x = maxx;
+        if (y < miny) y = miny;
+        if (y > maxy) y = maxy;
+    }
+
     public boolean isAlive() {
         return isAlive;
     }
 
-    public void draw(){
-
+    public void setAlive(boolean alive) {
+        isAlive = alive;
     }
 
-    public void move(){
-
-    }
-
-    public void die(){
+    public void die() {
         isAlive = false;
     }
 
-    public boolean isIntersect(BaseObject o){
-
+    /**
+     * Проверяем - пересекаются ли переданный(o) и наш(this) объекты.
+     */
+    public boolean isIntersect(BaseObject o) {
         double dx = x - o.x;
         double dy = y - o.y;
         double distance = Math.sqrt(dx * dx + dy * dy);
