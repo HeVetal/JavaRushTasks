@@ -27,7 +27,7 @@ public class Canvas {
         int roundX = (int) Math.round(x);
         int roundY = (int) Math.round(y);
         if (roundX >= 0 && roundX < matrix[0].length && roundY >= 0 && roundY < matrix.length) {
-            // matrix[y][x] = c;
+            matrix[roundY][roundX] = c;
         }
     }
 
