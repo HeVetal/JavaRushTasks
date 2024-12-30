@@ -12,10 +12,10 @@ public class Solution {
 
     public static void main(String[] args) throws Exception {
         try (SessionFactory sessionFactory = MySessionFactory.getSessionFactory()) {
-            String hql = "select distinct smth from Employee where age > 18 order by smth";
+            String hql = "select distinct smth from Employee where age > 18";
             Session session = sessionFactory.openSession();
             Query<String> query = session.createQuery(hql, String.class);
-            query.stream().forEach(System.out::println);
+            query.list().forEach(System.out::println);
         }
     }
 }

@@ -17,6 +17,7 @@ public class MySessionFactory {
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
         properties.put(Environment.USER, "root");
         properties.put(Environment.PASS, "root");
+        properties.put(Environment.HBM2DDL_AUTO, "update");
 
         sessionFactory = new Configuration()
                 .setProperties(properties)

@@ -1,9 +1,11 @@
 package com.javarush.task.sql.task10.task1001;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 @Entity
 @Table(name = "employee")
+@ToString
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
