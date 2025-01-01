@@ -8,4 +8,8 @@ public class Bomb extends BaseObject{
     public void move(){
         y++;
     }
+
+    public void draw(Canvas canvas){
+        canvas.setPoint(x, y, 'B');
+    }
 }

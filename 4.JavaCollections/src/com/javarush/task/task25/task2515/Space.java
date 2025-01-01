@@ -10,6 +10,7 @@ public class Space {
     private List<Ufo> ufos;
     private List<Rocket> rockets;
     private List<Bomb> bombs;
+    public static Space game;
 
     public Space(int width, int height) {
         this.width = width;
