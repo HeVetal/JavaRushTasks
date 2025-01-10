@@ -17,7 +17,8 @@ public class Solution {
 
     public static void promoteAll() {
         try (SessionFactory sessionFactory = MySessionFactory.getSessionFactory()) {
-            Query<Employee> query = sessionFactory.getCurrentSession().createQuery(
+            Session session = sessionFactory.openSession();
+            Query<Employee> query = session.createQuery(
                     "update Employee set smth = 'senior ' + smth");
             query.executeUpdate();
         }
