@@ -1,0 +1,2 @@
+SELECT a DIV b
+FROM math
