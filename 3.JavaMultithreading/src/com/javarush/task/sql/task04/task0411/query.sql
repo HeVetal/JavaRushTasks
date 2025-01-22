@@ -1,0 +1,2 @@
+SELECT BIT_COUNT(a)
+FROM logic
