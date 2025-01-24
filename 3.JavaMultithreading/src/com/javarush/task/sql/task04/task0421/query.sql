@@ -1,0 +1,3 @@
+SELECT CURDATE() AS cur,
+       ADDDATE(CURDATE(), 3),
+       SUBDATE(CURDATE(), 3)
