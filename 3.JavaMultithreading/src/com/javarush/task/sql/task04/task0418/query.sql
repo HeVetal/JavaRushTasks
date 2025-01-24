@@ -1,0 +1,2 @@
+SELECT NOW(), LOCALTIME()
+# LOCALTIME not local
