@@ -19,7 +19,7 @@ public class Cook extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object order) {
-        ConsoleHelper.writeMessage("Start cooking - " + order);
+        ConsoleHelper.writeMessage("Start cooking - ," + order);
         setChanged();
         notifyObservers(order);
     }
