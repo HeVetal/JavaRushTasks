@@ -1,5 +1,6 @@
 package com.javarush.task.task27.task2712;
 
+import com.javarush.task.task27.task2712.ad.AdvertisementManager;
 import com.javarush.task.task27.task2712.kitchen.Order;
 
 import java.io.IOException;
@@ -20,9 +21,14 @@ public class Tablet extends Observable {
         try {
             order = new Order(this);
             if (!order.isEmpty()) {
+                int time = order.getTotalCookingTime() * 60;
+                AdvertisementManager manager = new AdvertisementManager(time);
+                manager.processVideos();
+
                 ConsoleHelper.writeMessage(order.toString());
                 setChanged();
                 notifyObservers(order);
+
             }
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");

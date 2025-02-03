@@ -18,9 +18,10 @@ public class Test {
 
     public static void main(String[] args) {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("name2", 3, 7));
+        items.add(new Item("name2", 4, 6));
+        items.add(new Item("name4", 2, 4));
         items.add(new Item("name1", 5, 3));
-        items.add(new Item("name4", 2, 6));
+        items.add(new Item("name5", 6, 6));
         items.add(new Item("name3", 4, 5));
 
         int maxWeight = 8;
