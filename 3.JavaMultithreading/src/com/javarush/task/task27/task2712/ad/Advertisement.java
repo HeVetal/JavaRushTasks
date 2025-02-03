@@ -36,4 +36,9 @@ public class Advertisement {
         }
         hits--;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s is displaying... %d, %d", name, amountPerOneDisplaying, amountPerOneDisplaying * 1000 / duration);
+    }
 }
