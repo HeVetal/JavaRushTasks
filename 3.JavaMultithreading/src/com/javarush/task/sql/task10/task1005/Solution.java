@@ -17,8 +17,9 @@ public class Solution {
         List<Book> books = null;
         try (SessionFactory sessionFactory = MySessionFactory.getSessionFactory()) {
             Session session = sessionFactory.openSession();
-            String hql = "from Book where Book.author = 'Mark Twain ' and Book.publisher = 'Фолио'";
-            Query<Book> query = session.createQuery(hql);
+            String hql = "from Book where Author.fullName = 'Mark Twain' and Publisher.name = 'Фолио'";
+            Query<Book> query = session.createQuery(hql, Book.class);
+            books = query.list();
         }
 
         books.forEach(System.out::println);
