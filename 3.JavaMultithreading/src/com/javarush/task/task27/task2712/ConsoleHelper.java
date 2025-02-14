@@ -9,11 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConsoleHelper {
-    private static final BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+    private static BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
 
-
-
-    public static void writeMessage(String message){
+    public static void writeMessage(String message) {
         System.out.println(message);
     }
 
@@ -22,12 +20,12 @@ public class ConsoleHelper {
     }
 
     public static List<Dish> getAllDishesForOrder() throws IOException {
-        writeMessage("Пожалуйста выберете блюдо из списка: " + Dish.allDishesToString());
+        writeMessage("Выберете блюдо из списка " + Dish.allDishesToString());
         writeMessage("Введите 'exit' для завершения заказа");
         List<Dish> dishes = new ArrayList<>();
-        while (true){
+        while (true) {
             String dishName = readString();
-            if("exit".equals(dishName)){
+            if ("exit".equals(dishName)) {
                 break;
             }
             try {

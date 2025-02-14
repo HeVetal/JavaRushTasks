@@ -1,6 +1,5 @@
 package com.javarush.task.task27.task2712.ad;
 
-
 import com.javarush.task.task27.task2712.ConsoleHelper;
 
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class AdvertisementManager {
-    private final AdvertisementStorage storage = AdvertisementStorage.getInstance();
+    private AdvertisementStorage storage = AdvertisementStorage.getInstance();
     private int timeSeconds;
 
     private List<Advertisement> optimalVideoSet;
@@ -36,8 +35,7 @@ public class AdvertisementManager {
         optimalVideoSet.sort(
                 Comparator.comparingLong(Advertisement::getAmountPerOneDisplaying)
                         .thenComparingInt(Advertisement::getDuration)
-                        .reversed()
-        );
+                        .reversed());
 
         for (Advertisement advertisement : optimalVideoSet) {
             ConsoleHelper.writeMessage(advertisement.toString());
@@ -76,7 +74,6 @@ public class AdvertisementManager {
                         bestAmount = amount;
                         bestDuration = duration;
                     }
-
                     if (duration == bestDuration && advertisements.size() < optimalVideoSet.size()) {
                         optimalVideoSet = advertisements;
                         bestAmount = amount;

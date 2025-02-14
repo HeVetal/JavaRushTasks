@@ -8,12 +8,19 @@ import java.util.List;
 
 public class Order {
     private final Tablet tablet;
-
     protected List<Dish> dishes;
 
     public Order(Tablet tablet) throws IOException {
         this.tablet = tablet;
         dishes = ConsoleHelper.getAllDishesForOrder();
+    }
+
+    @Override
+    public String toString() {
+        return dishes.isEmpty() ? "" : "Your order: " +
+                dishes +
+                " of " + tablet.toString() + "cooking time " +
+                getTotalCookingTime() + "min";
     }
 
     public int getTotalCookingTime(){
@@ -22,13 +29,5 @@ public class Order {
 
     public boolean isEmpty(){
         return dishes.isEmpty();
-    }
-
-    @Override
-    public String toString() {
-
-        return dishes.isEmpty() ? "" :
-                String.format("Your order: %s of %s, cooking time %dmin",
-                        dishes, tablet.toString(), getTotalCookingTime());
     }
 }

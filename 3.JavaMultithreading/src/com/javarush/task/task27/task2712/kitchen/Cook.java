@@ -6,7 +6,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class Cook extends Observable implements Observer {
-    private String name;
+    private final String name;
 
     public Cook(String name) {
         this.name = name;
@@ -19,7 +19,7 @@ public class Cook extends Observable implements Observer {
 
     @Override
     public void update(Observable o, Object order) {
-        ConsoleHelper.writeMessage("Start cooking - ," + order);
+        ConsoleHelper.writeMessage("Start cooking - " + order);
         setChanged();
         notifyObservers(order);
     }
