@@ -18,6 +18,14 @@ public class VideoSelectedEventDataRow implements EventDataRow {
         currentDate = new Date();
     }
 
+    public long getAmount() {
+        return amount;
+    }
+
+    public void setCurrentDate(Date currentDate) {
+        this.currentDate = currentDate;
+    }
+
     @Override
     public EventType getType() {
         return EventType.SELECTED_VIDEOS;

@@ -3,6 +3,7 @@ package com.javarush.task.task27.task2712.statistic;
 import com.javarush.task.task27.task2712.kitchen.Cook;
 import com.javarush.task.task27.task2712.statistic.event.EventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.EventType;
+import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
 import java.util.*;
 
@@ -23,8 +24,26 @@ public class StatisticManager {
         return instance;
     }
 
-    public void register(Cook cook){
+    public void register(Cook cook) {
         cooks.add(cook);
+    }
+
+    public Map<Date, Double> getProffitMap() {
+        Map<Date, Double> map = new TreeMap<>();
+        Map<EventType, List<EventDataRow>> storage = statisticStorage.getStorage();
+        List<EventDataRow> eventDataRows = storage.get(EventType.SELECTED_VIDEOS);
+        //stream
+        for (EventDataRow eventDataRow : eventDataRows) {
+            VideoSelectedEventDataRow videoSelected = (VideoSelectedEventDataRow) eventDataRow;
+            Double amount = videoSelected.getAmount() / 100.0;
+            Date date = videoSelected.getDate();
+            if (!map.containsKey(date)) {
+                map.put(date, amount);
+            } else {
+                map.put(date, map.get(date) + amount);
+            }
+        }
+        return map;
     }
 
     private class StatisticStorage {
@@ -35,11 +54,15 @@ public class StatisticManager {
                     .forEach(type -> storage.put(type, new ArrayList<>()));
         }
 
-        private void put(EventDataRow data){
+        private void put(EventDataRow data) {
 //            EventType type = data.getType();
 //            List<EventDataRow> eventDataRows = storage.get(type);
 //            eventDataRows.add(data);
             storage.get(data.getType()).add(data);
+        }
+
+        public Map<EventType, List<EventDataRow>> getStorage() {
+            return storage;
         }
     }
 }
