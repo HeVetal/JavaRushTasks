@@ -1,6 +1,8 @@
 package com.javarush.task.task27.task2712.ad;
 
 import com.javarush.task.task27.task2712.ConsoleHelper;
+import com.javarush.task.task27.task2712.statistic.StatisticManager;
+import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -36,6 +38,12 @@ public class AdvertisementManager {
                 Comparator.comparingLong(Advertisement::getAmountPerOneDisplaying)
                         .thenComparingInt(Advertisement::getDuration)
                         .reversed());
+
+        VideoSelectedEventDataRow eventDataRow = new VideoSelectedEventDataRow(
+                optimalVideoSet,
+                bestAmount,
+                bestDuration);
+        StatisticManager.getInstance().register(eventDataRow);
 
         for (Advertisement advertisement : optimalVideoSet) {
             ConsoleHelper.writeMessage(advertisement.toString());

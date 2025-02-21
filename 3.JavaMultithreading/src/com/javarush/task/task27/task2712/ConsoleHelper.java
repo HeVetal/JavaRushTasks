@@ -20,19 +20,22 @@ public class ConsoleHelper {
     }
 
     public static List<Dish> getAllDishesForOrder() throws IOException {
-        writeMessage("Выберете блюдо из списка " + Dish.allDishesToString());
-        writeMessage("Введите 'exit' для завершения заказа");
+//        writeMessage("Выберете блюдо из списка " + Dish.allDishesToString());
+//        writeMessage("Введите 'exit' для завершения заказа");
+        writeMessage("Please choose a dish from the list: " + Dish.allDishesToString()
+                + "\n or type 'exit' to complete the order");
         List<Dish> dishes = new ArrayList<>();
         while (true) {
-            String dishName = readString();
+            String dishName = readString().trim();
             if ("exit".equals(dishName)) {
                 break;
             }
             try {
                 Dish dish = Dish.valueOf(dishName);
                 dishes.add(dish);
+                writeMessage(dishName + " has been successfully added to your order");
             } catch (IllegalArgumentException e) {
-                writeMessage("Такого блюда нет");
+                writeMessage(dishName + " hasn't been detected");
             }
         }
         return dishes;

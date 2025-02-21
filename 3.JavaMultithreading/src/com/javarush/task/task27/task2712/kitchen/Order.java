@@ -15,6 +15,10 @@ public class Order {
         dishes = ConsoleHelper.getAllDishesForOrder();
     }
 
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
     @Override
     public String toString() {
         return dishes.isEmpty() ? "" : "Your order: " +
@@ -23,11 +27,11 @@ public class Order {
                 getTotalCookingTime() + "min";
     }
 
-    public int getTotalCookingTime(){
+    public int getTotalCookingTime() {
         return dishes.stream().mapToInt(Dish::getDuration).sum();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return dishes.isEmpty();
     }
 }
