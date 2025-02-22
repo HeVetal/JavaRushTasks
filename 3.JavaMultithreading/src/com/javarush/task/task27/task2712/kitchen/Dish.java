@@ -1,10 +1,10 @@
 package com.javarush.task.task27.task2712.kitchen;
 
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public enum Dish {
+
     FISH(25),
     STEAK(30),
     SOUP(15),
@@ -13,7 +13,7 @@ public enum Dish {
 
     private final int duration;
 
-    private Dish(int duration) {
+    Dish(int duration) {
         this.duration = duration;
     }
 
@@ -21,8 +21,7 @@ public enum Dish {
         return duration;
     }
 
-    public static String allDishesToString() {
-
+    public static String allDishesToString(){
         return Arrays.stream(values()).map(String::valueOf).collect(Collectors.joining(", "));
     }
 }

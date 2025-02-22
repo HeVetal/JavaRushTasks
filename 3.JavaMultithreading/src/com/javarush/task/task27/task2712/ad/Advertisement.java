@@ -8,14 +8,16 @@ public class Advertisement {
     private int duration;
     private long amountPerOneDisplaying;
 
-
     public Advertisement(Object content, String name, long initialAmount, int hits, int duration) {
         this.content = content;
         this.name = name;
         this.initialAmount = initialAmount;
         this.hits = hits;
         this.duration = duration;
-        this.amountPerOneDisplaying = hits > 0 ? initialAmount/hits : 0;
+
+        if (hits > 0) {
+            amountPerOneDisplaying = initialAmount / hits;
+        }
     }
 
     public int getDuration() {
@@ -32,7 +34,7 @@ public class Advertisement {
 
     public void revalidate(){
         if(hits <= 0){
-            throw new UnsupportedOperationException();
+            throw new NoVideoAvailableException("");
         }
         hits--;
     }
