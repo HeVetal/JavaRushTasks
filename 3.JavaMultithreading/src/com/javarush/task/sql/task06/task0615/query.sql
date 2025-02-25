@@ -1,0 +1,2 @@
+DELETE FROM task
+WHERE id = 5;
