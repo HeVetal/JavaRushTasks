@@ -1,0 +1,2 @@
+ALTER TABLE employee
+    MODIFY COLUMN salary FLOAT
