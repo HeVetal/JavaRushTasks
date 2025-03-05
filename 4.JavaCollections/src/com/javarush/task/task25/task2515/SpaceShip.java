@@ -14,4 +14,14 @@ public class SpaceShip extends BaseObject {
     public void moveRight() {
         dx = 1;
     }
+
+    public void move(){
+
+    }
+
+    public void draw(Canvas canvas){
+
+    }
+
+    public void fire(){}
 }
