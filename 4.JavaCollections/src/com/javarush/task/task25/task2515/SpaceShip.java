@@ -16,7 +16,8 @@ public class SpaceShip extends BaseObject {
     }
 
     public void move(){
-
+        checkBorders(0, Space.game.getWidth(), 0, Space.game.getHeight());
+        x += dx;
     }
 
     public void draw(Canvas canvas){
