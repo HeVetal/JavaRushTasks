@@ -19,5 +19,8 @@ public class Ufo extends BaseObject {
 
     public void move(){}
 
-    public void fire(){}
+    public void fire(){
+        Space.game.getBombs().add(new Bomb(x - 2, y));
+        Space.game.getBombs().add(new Bomb(x + 2, y));
+    }
 }
