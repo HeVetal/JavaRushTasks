@@ -18,6 +18,7 @@ public class CookedOrderEventDataRow implements EventDataRow {
         this.cookingTimeSeconds = cookingTimeSeconds;
         this.cookingDishes = cookingDishes;
         currentDate = new Date();
+
     }
 
     public String getCookName() {
