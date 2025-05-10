@@ -19,6 +19,7 @@ public class Bomb extends BaseObject {
     /**
      * Двигаем себя вниз на один ход.
      */
+
     @Override
     public void move() {
         y++;
