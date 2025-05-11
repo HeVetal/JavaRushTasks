@@ -11,6 +11,7 @@ public class Bomb extends BaseObject {
     /**
      * Отрисовываем себя на холсте.
      */
+
     @Override
     public void draw(Canvas canvas) {
         canvas.setPoint(x, y, 'B');
