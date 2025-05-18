@@ -21,7 +21,6 @@ public class Space {
     }
 
     public void run() {
-
     }
 
     public void draw() {
