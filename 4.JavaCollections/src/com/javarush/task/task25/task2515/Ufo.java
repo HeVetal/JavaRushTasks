@@ -17,9 +17,10 @@ public class Ufo extends BaseObject {
         canvas.drawMatrix(x - radius + 1, y - radius + 1, matrix, 'U');
     }
 
-    public void move(){}
+    public void move() {
+    }
 
-    public void fire(){
+    public void fire() {
         Space.game.getBombs().add(new Bomb(x - 2, y));
         Space.game.getBombs().add(new Bomb(x + 2, y));
     }
