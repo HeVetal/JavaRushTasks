@@ -18,6 +18,8 @@ public class Ufo extends BaseObject {
     }
 
     public void move() {
+        double dx = Math.random() * 2 - 1;
+
     }
 
     public void fire() {
