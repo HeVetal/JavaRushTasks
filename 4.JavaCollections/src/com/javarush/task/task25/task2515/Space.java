@@ -32,7 +32,6 @@ public class Space {
     }
 
     public int getWidth() {
-
         return width;
     }
 
