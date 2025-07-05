@@ -36,6 +36,7 @@ public class Space {
     }
 
     public int getHeight() {
+
         return height;
     }
 
